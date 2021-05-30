@@ -10,6 +10,10 @@ module.exports = {
     organizationName: 'owlgrid', // Usually your GitHub org/user name.
     projectName: 'doc-public-front', // Usually your repo name.
     themeConfig: {
+        colorMode: {
+            disableSwitch: true,
+            respectPrefersColorScheme: true
+        },
         navbar: {
             title: 'OwlGrid',
             logo: {
