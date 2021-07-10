@@ -23,7 +23,7 @@ Request details:
 #### Operations
 
 4 types of operations are available when writing data:
-- `declare`: data given will be created or updated whereas it exists already or not. If some fields are not present in the query, they are considered as null and will be nuullified in the database. This operation consists as 'rewriting' the object if it changed;
+- `declare`: data given will be created or updated whereas it exists already or not. If some fields are not present in the query, they are considered as null and will be nullified in the database. This operation consists as 'rewriting' the object if it changed. If the data contains only the data identifier (and any other property), the object will be archived (same operation as archive). We recommand to use `declare` operation when possible;
 - `append`: data given will be created or partially updated whereas it exists already or not. Only the fields present in the request will be updated in the database. Unlike `declare`, if fields are not present in data, they will be ignored (and not set to null);
 - `archive`: the current version of the object will be outdated (as the object does not exists). The history will be still available. This operation should be avoided because it have an impact on the database. Instead, you better use status directly in data. Only the object id have to be given in data (other property will be ignored).
 - `delete`: WARNING, this operation shouldn't be used. It is a maintenance operation that must not be used in production. This operation deletes an object regarding its id and its history (can be used for maintenance purpose only). Only the object id have to be given in data (other property will be ignored).
