@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Tenants
+# [à supprimer ?] Tenants
 
 To start storing and using data, a **tenant** must be created. Tenant are hermetic entities (no reference to data stored in other tenant). 
 
