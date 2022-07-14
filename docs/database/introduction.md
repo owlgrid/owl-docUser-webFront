@@ -60,7 +60,7 @@ La plupart des bases de données traditionelles enregistrent directement les don
 OwlGrid apporte une couche d'abstraction via un meta-modèle.
 
 Les avantages d'OwlGrid :
-- Meta-model : la gestion du modèle de données est effectuée dans une entité spécifique. À chaque propriété est assignée un identifiant unique et court qui consistue la clé de la donnée. On peut ainsi attacher des métadonnées à chaque propriété (par exemple des traductions, ou des informations de gouvernance) ;
+- Meta-model : la gestion du modèle de données est effectuée dans une entité spécifique. À chaque propriété est assignée un identifiant unique et court qui constitue la clé de la donnée. On peut ainsi attacher des métadonnées à chaque propriété (par exemple des traductions, ou des informations de gouvernance) ;
 - Modifications du schéma : 2 types de modifications du schéma : structurelles et secondaires. Les modifications structurelles mettent à jour tous les objets de la base de données. Les modifications secondaires ne mettent à jour que le modèle (ex : changement de nom d'une propriété, modification des droits, etc.) ;
 - Types de données : les types de données sont généralement limités par les caractéristiques de la base de données (exemple : dans une base de données MySQL, on ne peut pas stocker des chiffres décimaux). OwlGrid permet d'enregistrer tous les types de données grâce à un stockage binaire des types non-primitifs (à creuser). OwlGrid permet également d'enregistrer des fichiers de données, comme des images, des fichiers, etc. Plus besoin d'utiliser des espaces de stockage ! ;
 - GraphQL : l'interrogation de la base de données se fait via GraphQL. Les requêtes sont générées automatiquement à partir du schéma de données. Elles peuvent être optimisées pour les performances (cf. Performances). La vocation de OwlGrid n'est pas de fournir des connexions à plusieurs technologies (librairies Node, etc.) mais de privilégier l'approche `workflow` (todo : mettre plus d'informations) -> on est sûrs de ça ? ça peut être bien pour les backends mais pas trop relou et contraignants ? (en plus pas ouf pour le partage de données entre bases de données, cf. référencement des données externes) ;
@@ -72,6 +72,7 @@ Les avantages d'OwlGrid :
     - `delete`: WARNING, this operation shouldn't be used. It is a maintenance operation that must not be used in production. This operation deletes an object regarding its id and its history (can be used for maintenance purpose only). Only the object id have to be given in data (other property will be ignored).
 - Fini les identifiants : les relations entre les objets sont toujours complexes à gérer. OwlGrid permet désormais de référencer des objets et non pas des identifiants sur des objets. Cela permet de gérer des relations complexes, comme des relations entre objets de différents schémas, sans avoir à s'enfermer dans une logique d'identifiants (souvents ambigüs : identifiants métiers, techniques, pas systématiquement à jour, etc.).
 - Doubles numériques : les doubles
+- Documentation : la documentation des API est automatiquement générée (OpenAPI). -> comment gérer les droits ? est-ce que vraiment nécessaire étant donné qu'on expose rarement directement la bdd dans une API ? (ce serait plus pertinent de générer la documentation des workflows).
 - Sémantique : les 
 - Évènements : le moteur d'évènements permet de déclencher des actions lors d'une modification d'un objet. On peut simplement définir des règles d'écoute sur des objets pour déclencher des actions associées.
 - Interface graphique : les bases de données sont souvent peu pratiques à visualiser. La plupart du temps, rendre lisible une base de données à un métier ou un partenaire qui n'a pas de compétences techniques nécessite des développements supplémentaires pour mettre en place des interfaces graphiques. OwlGrid propose une interface graphique extrêmement simple qui permet d'explorer et manipuler tant les données que les schémas par les développeurs et aussi le métier.
@@ -85,3 +86,76 @@ Les avantages d'OwlGrid :
 - Permissions : les permissions permettent de définir les stratégies d'accès à tous les utilisateurs et groupes d'utilisateurs. Todo -> comment fusionner avec les policies des workflows ?
 - Templates : les templates permettent de créer des schémas à partir d'un schéma existant. Il est possible de créer des schémas à partir d'un schéma existant, en utilisant des templates. Ex : template d'application mobile.
 - Référencement de données externes : *a priori* pas possible, sauf si on utilise les doubles numériques -> question de l'accès -> est-ce que pas impossible à cause de gestion des droits + philosophie des workflows ? Ça pourrait être pratique pour donner accès à des données.
+- Transactions : les transactions permettent d'effectuer plusieurs opérations d'écriture simultanées. Todo -> comment faire ? (cf. ACID)
+
+
+# Processes
+
+## Utilisateurs
+
+- Créer un compte utilisateur
+- Mettre à jour les données d'un compte utilisateur
+
+## Tenants
+
+- Créer un tenant / projet ?
+- Supprimer un tenant / projet
+
+## Schema 
+
+- Créer un schéma :
+- Créer une propriété d'un schéma :
+- Mettre à jour une propriété d'un schéma :
+- Supprimer un schéma :
+- Créer une nouvelle version d'un schéma :
+- Analyser les modifications structurelles en cas de mise à jour d'un schéma :
+
+
+## Data
+
+- Déclarer un objet inexistant :
+  - Avec une référence à un objet inexistant :
+  - Avec une donnée de type fichier :
+- Déclarer un objet existant :
+  - Avec historisation :
+- Archiver un objet existant :
+- Supprimer un objet existant :
+- Lister des objets existants :
+  - Paginer parmi les objets existants :
+- Lire un objet existant :
+  - Avec un ou plusieurs niveaux d'imbrication :
+  - Lire des données historisées
+- Lister l'historique d'un objet :
+
+## Droits
+
+- Créer un nouveau client :
+- Créer un nouveau droit :
+- Mettre à jour un droit :
+- Assigner un droit à un client :
+- Désassigner un droit à un client :
+- Supprimer un droit :
+
+## Versions
+
+- Créer une version (fork de la branche principale) :
+- Ajouter les données principales dans la version :
+  - Avec limite à x objets / schéma :
+- Créer un jeu de données mock :
+- Adapter le jeu de données mock au schéma de la version :
+- 
+
+
+
+
+# Data model
+
+Modèle de données de l'archi :
+- Utilisateur
+- Tenants
+  - Clients (peut être de type physique ou application)
+  - Groupes de clients
+  - Schemas
+  - Données
+  - Droits
+  - Taxonomies
