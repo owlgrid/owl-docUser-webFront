@@ -2,7 +2,13 @@
 sidebar_position: 3
 ---
 
-# [à supprimer ?] Tenants
+# Spaces
+
+Spaces are the highest level of OwlGrid platform. A space is a collection of resources, users. Each space contains one database and is isolated of the other spaces (even if other spaces exists in the same organization).
+
+A space is attached to an organization.
+
+
 
 To start storing and using data, a **tenant** must be created. Tenant are hermetic entities (no reference to data stored in other tenant). 
 
