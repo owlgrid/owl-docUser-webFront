@@ -8,9 +8,9 @@ Spaces are the highest level of OwlGrid platform. A space is a collection of res
 
 A space is attached to an organization.
 
-
-
-To start storing and using data, a **tenant** must be created. Tenant are hermetic entities (no reference to data stored in other tenant). 
+:::caution
+Supprimer ce qui suit
+:::
 
 The size of a tenant is unlimited and its performance is unique. Lastly, a dedicated cluster is assigned to each tenant.
 We recommend creating one tenant per information system. You don't have to worry about space, performance or semantic consistency; the objects stored in it will be managed with dedicated perimeters.

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# [à modifier] Rights
+# Rights
 
 Les droits sont des permissions qui sont utilisées pour déterminer quelles actions sont autorisées ou non.
 Les droits sont utilisés pour déterminer les permissions des administrateurs OwlGrid, mais peuvent être également utilisés dans le cadre d'applications.
