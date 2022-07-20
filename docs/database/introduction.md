@@ -63,6 +63,7 @@ Les avantages d'OwlGrid :
 - Meta-model : la gestion du modèle de données est effectuée dans une entité spécifique. À chaque propriété est assignée un identifiant unique et court qui constitue la clé de la donnée. On peut ainsi attacher des métadonnées à chaque propriété (par exemple des traductions, ou des informations de gouvernance) ;
 - Modifications du schéma : 2 types de modifications du schéma : structurelles et secondaires. Les modifications structurelles mettent à jour tous les objets de la base de données. Les modifications secondaires ne mettent à jour que le modèle (ex : changement de nom d'une propriété, modification des droits, etc.) ;
 - Types de données : les types de données sont généralement limités par les caractéristiques de la base de données (exemple : dans une base de données MySQL, on ne peut pas stocker des chiffres décimaux). OwlGrid permet d'enregistrer tous les types de données grâce à un stockage binaire des types non-primitifs (à creuser). OwlGrid permet également d'enregistrer des fichiers de données, comme des images, des fichiers, etc. Plus besoin d'utiliser des espaces de stockage ! ;
+- Règles de validation de données pendant l'insertion ;
 - GraphQL : l'interrogation de la base de données se fait via GraphQL. Les requêtes sont générées automatiquement à partir du schéma de données. Elles peuvent être optimisées pour les performances (cf. Performances). La vocation de OwlGrid n'est pas de fournir des connexions à plusieurs technologies (librairies Node, etc.) mais de privilégier l'approche `workflow` (todo : mettre plus d'informations) -> on est sûrs de ça ? ça peut être bien pour les backends mais pas trop relou et contraignants ? (en plus pas ouf pour le partage de données entre bases de données, cf. référencement des données externes) ;
 - Écriture de données : OwlGrid permet de définir des règles pour écrire les données. On peut donner par exemple la possibilité de référencer un objet encore inexistant (la liaison entre les deux objets sera créée automatiquement lors de l'insertion du second objet). On peut également restreindre l'écriture de données au respect de schémas spécifiques (exemple : impossible de créer un objet qui ne possède pas un type donné) ou bien insérer tout de même la donnée en ajoutant un marqueur @to_complete sur les propriétés pas encore remplies. Les données marquées soulèvent une notification (cf. partie Notifications) et sont mises en évidence comme non-conformes dans la base de données ;
   - 4 opérations possibles :
@@ -71,23 +72,31 @@ Les avantages d'OwlGrid :
     - `archive`: the current version of the object will be outdated (as the object does not exists). The history will be still available. This operation should be avoided because it have an impact on the database. Instead, you better use status directly in data. Only the object id have to be given in data (other property will be ignored).
     - `delete`: WARNING, this operation shouldn't be used. It is a maintenance operation that must not be used in production. This operation deletes an object regarding its id and its history (can be used for maintenance purpose only). Only the object id have to be given in data (other property will be ignored).
 - Fini les identifiants : les relations entre les objets sont toujours complexes à gérer. OwlGrid permet désormais de référencer des objets et non pas des identifiants sur des objets. Cela permet de gérer des relations complexes, comme des relations entre objets de différents schémas, sans avoir à s'enfermer dans une logique d'identifiants (souvents ambigüs : identifiants métiers, techniques, pas systématiquement à jour, etc.).
-- Doubles numériques : les doubles
 - Documentation : la documentation des API est automatiquement générée (OpenAPI). -> comment gérer les droits ? est-ce que vraiment nécessaire étant donné qu'on expose rarement directement la bdd dans une API ? (ce serait plus pertinent de générer la documentation des workflows).
-- Sémantique : les 
 - Évènements : le moteur d'évènements permet de déclencher des actions lors d'une modification d'un objet. On peut simplement définir des règles d'écoute sur des objets pour déclencher des actions associées.
 - Interface graphique : les bases de données sont souvent peu pratiques à visualiser. La plupart du temps, rendre lisible une base de données à un métier ou un partenaire qui n'a pas de compétences techniques nécessite des développements supplémentaires pour mettre en place des interfaces graphiques. OwlGrid propose une interface graphique extrêmement simple qui permet d'explorer et manipuler tant les données que les schémas par les développeurs et aussi le métier.
 - Versions : en pratique, un modèle de données évolue au quotidien. Or, il est extrêmement complexe de mettre à jour des éléments du data model sans
 - Mock data : OwlGrid permet de créer des jeux de données de base qui peuvent être importés dans la base de données, ce qui permet notamment de tester les versions entre environnements ;
 - Historisation : historiser des données (réécrites dans le temps) nécessite de mettre en place des processus et des modèles de données complexes. Pourquoi réinventer la roue à chaque fois ? Avec OwlGrid, il est possible en un clic de créer un data warehouse en activant l'option "historisation des données" sur une propriété ou un schéma.
 - Notifications : lorsqu'une partie du data model évolue, tous les clients qui y ont accès peuvent être notifiés. Cela permet d'éviter les régressions en mettant en place un processus de test et de mise à niveau des applications qui utilisent ce modèle.
-- Scalabilité : OwlGrid utilise une structure de stockage permettant de stocker un volume de données très conséquent.
-- Performances : les performances sont cruciales pour lire et écrire dans une base de données. OwlGrid permet de gérer les performances en utilisant des caches. Les caches sont en fait la première étape de l'architecture avec laquelle on échange lors d'une requête d'écriture ou de lecture. Il existe plusieurs niveaux de performances : simple (pas de cache), optimisé (cache qui peut être distribué), avancé (cache qui anticipe les requêtes).
+- Scalabilité : OwlGrid utilise une structure de stockage permettant de stocker un volume de données très conséquent (pas de problématique de stockage, étendable à l'infini, par contre problématiques pour les requêtes de recherche).
+- Performances : les performances sont cruciales pour lire et écrire dans une base de données. OwlGrid permet de gérer les performances en utilisant des caches. Les caches sont en fait la première étape de l'architecture avec laquelle on échange lors d'une requête d'écriture ou de lecture. Il existe plusieurs niveaux de performances : 
+  - simple (pas de cache) -> version gratuite, 
+  - indexé (cache de certains champs) -> paye au nombre de champs indexés x leur taille,
+  - optimisé requête (cache qui peut être distribué) -> à la demande on créé des caches optimisés pour certaines requêtes (par exemple pour générer des feeds d'actualité),
+  - intelligent (anticipation des requêtes et optimisation à l'avance) -> dans le futuur.
 - Moteur de recherche : explorer les données est un processus complexe. OwlGrid permet de sélectionner des schémas et propriétés qui seront indexées dans un moteur de recherche et accessible ultra-rapidement. Ce moteur de recherche peut référencer des données de type scalaire, des objets et même des fichiers (analyse OCR dans des fichiers image, etc.). Pas de configuration requise, il suffit de cliquer sur "moteur de recherche" dans la configuration de la propriété.
 - Permissions : les permissions permettent de définir les stratégies d'accès à tous les utilisateurs et groupes d'utilisateurs. Todo -> comment fusionner avec les policies des workflows ?
 - Templates : les templates permettent de créer des schémas à partir d'un schéma existant. Il est possible de créer des schémas à partir d'un schéma existant, en utilisant des templates. Ex : template d'application mobile.
 - Référencement de données externes : *a priori* pas possible, sauf si on utilise les doubles numériques -> question de l'accès -> est-ce que pas impossible à cause de gestion des droits + philosophie des workflows ? Ça pourrait être pratique pour donner accès à des données.
 - Transactions : les transactions permettent d'effectuer plusieurs opérations d'écriture simultanées. Todo -> comment faire ? (cf. ACID)
+- RGPD : on peut d'un coup identifier et anonymiser les données. Metadonné "donnée personnelle"
 
+v2 :
+- Sémantique : intégration de schémas rdf, ontologies ?
+- Doubles numériques : les doubles
+
+-> todo : mettre ça sur Notion pour avoir les idées de Jean
 
 # Processes
 

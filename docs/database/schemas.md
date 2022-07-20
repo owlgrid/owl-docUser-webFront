@@ -4,6 +4,19 @@ sidebar_position: 3
 
 # Schemas
 
+## Under the hood
+
+On génère plusieurs modèles du schéma. Un modèle avec les droits (optimisé pour le serveur de gestion des droits), un modèle pour la traduction des clés (optimisé pour le serveur de résolution de requête).
+
+
+
+
+
+
+
+
+# Todo
+
 Schemas constitue the *model* of your database. They allow you to describe the organisation of your data in order to constrain their insertion and facilitate their exploration.
 
 ## Constraint
