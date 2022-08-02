@@ -13,11 +13,11 @@ Focus on the development of your application and the OwlGrid will take care of t
 ## Resources
 
 The platform contains several resources:
-- The [web administration interface](/docs/administration): manage all resources through a user-friendly interface.
+- The [web administration interface](/docs/administrate): manage all resources through a user-friendly interface.
 - The [workflow engine](/docs/workflows): automatize workflows, schedule triggers, execute them at the right time and monitor usage.
 - The [data store](/docs/database): store data, metadata and files in a single database.
 - The [functions](/docs/functions): create custom functions to perform specific jobs.
-- The [user management](/docs/users-management): keep your users and roles in sync with your applications.
+- The user management: keep your users and roles in sync with your applications.
 - The [hosting service](/docs/hosting): host web applications and websites at high-availability and speed all around the world.
 - The [monitoring](/docs/monitor): monitor your applications and websites.
 - The [messages](/docs/messages): publish and subscribe to messages with queues.

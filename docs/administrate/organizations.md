@@ -11,5 +11,3 @@ Every OwlGrid space is related to an organization. An organization represent an 
 An organization have a name and at least one administrator. The name of the organization and the administrators can be changed at any time.
 
 ## Usage and billing
-
-For more information, see the [billing documentation](/billing).
