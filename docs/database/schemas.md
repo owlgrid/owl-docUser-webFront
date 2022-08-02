@@ -9,6 +9,30 @@ sidebar_position: 3
 On génère plusieurs modèles du schéma. Un modèle avec les droits (optimisé pour le serveur de gestion des droits), un modèle pour la traduction des clés (optimisé pour le serveur de résolution de requête).
 
 
+# Operations
+
+- Check if a schema exists
+  - Input : schema id
+  - Process :
+    - Connect to database
+    - Request the schema collection with the given id
+    - If the schema exists, return true
+  - Output : sucess if exists, exception if not
+- Get schema's definition
+  - Input : ø
+  - Process :
+    - Get schema definition in memory (constant)
+    - Return schema definition
+  - Output : schema definition
+- Check if a schema is valid
+  - Input : schema object (JSON)
+  - Process :
+    - Get the schema definition (proc)
+    - Validate the schema using ajv
+    - Return success or error
+  - Output : success if is valid, exception if is not
+- Write a schema totally (total file)
+  - Input : schema object (JSON)
 
 
 

@@ -89,8 +89,12 @@ Les avantages d'OwlGrid :
 - Permissions : les permissions permettent de définir les stratégies d'accès à tous les utilisateurs et groupes d'utilisateurs. Todo -> comment fusionner avec les policies des workflows ?
 - Templates : les templates permettent de créer des schémas à partir d'un schéma existant. Il est possible de créer des schémas à partir d'un schéma existant, en utilisant des templates. Ex : template d'application mobile.
 - Référencement de données externes : *a priori* pas possible, sauf si on utilise les doubles numériques -> question de l'accès -> est-ce que pas impossible à cause de gestion des droits + philosophie des workflows ? Ça pourrait être pratique pour donner accès à des données.
+- Bulk export : exporter toutes les données en masse (on exporte la bdd dans des fichiers qu'on formatte ensuite, comme ça c'est plus léger que faire 100 000 requêtes pour avoir tous les records)
 - Transactions : les transactions permettent d'effectuer plusieurs opérations d'écriture simultanées. Todo -> comment faire ? (cf. ACID)
 - RGPD : on peut d'un coup identifier et anonymiser les données. Metadonné "donnée personnelle"
+- Logger toutes les requêtes et permettre de faire des analytics sur les champs les + ou - requêtés -> plus tard faire des propositions (du genre : on a vu que ces champs sont très requêtés, vous gagneriez en performance à mettre un index. Ou bien ces champs ne sont jamais requêtés, vous pouvez les archiver, etc.).
+- Realtime updates
+- Ce qu'onm manage : provisioning, scaling, sharding, replication, correctness, patching
 
 v2 :
 - Sémantique : intégration de schémas rdf, ontologies ?
@@ -168,3 +172,13 @@ Modèle de données de l'archi :
   - Données
   - Droits
   - Taxonomies
+
+
+Resources :
+- DynamoDB -> bdd orientée document / key value
+- AWS Fargate : serverless docker
+- AWS S3 : fichiers
+- Amazon Cognito : authentification
+- EventBridge : au besoin pour la gestion des évènements
+- API Gateway : passerelle d'API
+- CloudWatch : monitoring ? (ou autre service custom ?)
