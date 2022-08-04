@@ -12,7 +12,8 @@
         "clear": "docusaurus clear",
         "serve": "docusaurus serve",
         "write-translations": "docusaurus write-translations",
-        "write-heading-ids": "docusaurus write-heading-ids"
+        "write-heading-ids": "docusaurus write-heading-ids",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
     },
     "dependencies": {
         "@docusaurus/core": "^2.0.1",
@@ -36,5 +37,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@owlgrid-dev/prettier-config": "^0.0.1"
     }
 }
