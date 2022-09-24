@@ -4,9 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-Toutes les interactions avec les ressources d'OwlGrid sont effectuées par des utilisateurs (physiques ou machines) qui ont un certain niveau de droit. La ressource "Identities" a pour rôle d'administrer les identités, les authentifier et les administrer les droits dans l'écosystème OwlGrid.
-
-Les identités permettent de définir les utilisateurs et les groupes d'utilisateurs. Ces utilisateurs peuvent être des personnes physiques ou bien des machines (comptes de service). Les comptes de service permettent d'automatiser des actions (par exemple exécuter un workflow depuis un système).
+Les identités permettent de définir des utilisateurs et des groupes d'utilisateurs. Ces utilisateurs peuvent être des personnes physiques ou bien de machines (comptes de service). Les comptes de service permettent d'automatiser des actions (par exemple exécuter un workflow depuis un système).
 
 Les identités possèdent trois paramètres :
 - Un identifiant unique (`id`) qui sert à identifier l'identité (notamment dans la base de données) ;
