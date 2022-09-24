@@ -1,0 +1,61 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Perimeters
+
+Les instances de ressources à l'intérieur d'OwlGrid sont regroupées et identifiées en tant que périmètres. Un droit consiste en une action appliquée à un périmètre.
+
+Dès qu'une ressource d'OwlGrid est créée, un périmètre lui est automatiquement associé. Il est possible de créer des périmètres supplémentaires pour regrouper des ressources. TODO -> vraiment utile ?
+
+## Caractéristiques des périmètres
+
+### Données par défaut
+
+Un périmètre possède une donnée par défaut : son identifiant.
+
+L'identifiant est composé de la manière suivante : `owl.[nom de la ressource].[identifiant de la ressource]`. Par exemple : `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
+Si un périmètre concerne toutes les instances d'une même ressource, alors son identifiant est `owl.[nom de la ressource]`. Par exemple : `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database`.
+
+Le périmètre racine est 'owl'.
+
+### Données complémentaires
+
+Les données complémentaires peuvent être ajoutées librement par les administrateurs d'OwlGrid. Par exemple, on peut ajouter les données "périmètre de l'entreprise", "création du groupe", etc.
+
+## Création d'un périmètre -> TODO utile ?
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Modification d'un périmètre
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Suppression d'un périmètre
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>

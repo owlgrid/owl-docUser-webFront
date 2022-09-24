@@ -11,10 +11,15 @@ Les utilisateurs d'OwlGrid peuvent être rassemblés dans des groupes. Ces group
 
 ## Caractéristiques des groupes
 
+### Données par défaut
 Chaque groupe possède plusieurs données par défaut :
 - Identifiant unique attribué par OwlGrid (`id`) ;
 - Groupe parent (`parent`) ;
 - Nom du groupe (`name`).
+
+### Données complémentaires
+
+Les données complémentaires peuvent être ajoutées librement par les administrateurs d'OwlGrid. Par exemple, on peut ajouter les données "périmètre de l'entreprise", "création du groupe", etc.
 
 ## Hiérarchie de groupes
 
@@ -22,7 +27,7 @@ Les groupes peuvent être imbriqués. Cela permet de créer des groupes de group
 
 ![Group hierarchy](/img/group_hierarchy.jpeg)
 
-## Créer un groupe
+## List des groupes
 
 <Tabs groupId="client">
   <TabItem value="rest" label="REST API">
@@ -33,7 +38,7 @@ Les groupes peuvent être imbriqués. Cela permet de créer des groupes de group
   </TabItem>
 </Tabs>
 
-## Ajouter des utilisateurs à un groupe
+## Obtention des informations sur un groupe
 
 <Tabs groupId="client">
   <TabItem value="rest" label="REST API">
@@ -44,7 +49,7 @@ Les groupes peuvent être imbriqués. Cela permet de créer des groupes de group
   </TabItem>
 </Tabs>
 
-## Supprimer des utilisateurs d'un groupe
+## Obtention de la liste des membres d'un groupe
 
 <Tabs groupId="client">
   <TabItem value="rest" label="REST API">
@@ -55,7 +60,55 @@ Les groupes peuvent être imbriqués. Cela permet de créer des groupes de group
   </TabItem>
 </Tabs>
 
-## Supprimer un groupe
+## Obtention de la liste des assignations de droits à un groupe
+
+Cf. [Droits](/docs/identities/rights).
+
+## Création d'un groupe
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Modification d'un groupe
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Ajout d'un utilisateur à un groupe
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Suppression d'un utilisateur d'un groupe
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Suppression d'un groupe
 
 <Tabs groupId="client">
   <TabItem value="rest" label="REST API">
