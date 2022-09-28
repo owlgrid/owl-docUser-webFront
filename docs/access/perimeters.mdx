@@ -1,0 +1,76 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Perimeters
+
+Les identités sont regroupées dans des groupes et les ressources sont regroupées dans des périmètres. Les périmètres sont des groupes de ressources qui peuvent être modélisés en arborescence de manière à refléter au mieux votre organisation. Si votre entité utilise plusieurs organisations, il est possible de les représenter en utilisant plusieurs typologies de périmètres (de fait, une ressource peut appartenir à plusieurs périmètres).
+
+### Lien avec les droits
+
+Un droit est une action appliquée à un périmètre.
+
+## Périmètres systèmes
+
+Chaque ressource appartient à au moins un périmètre qui est le paramètre système. Ce périmètre est créé automatiquement lors de la création de la ressource et ne peut pas être supprimé. Il est possible de le renommer.
+
+#### Caractéristiques des périmètres système
+
+L'identifiant est composé de la manière suivante : `owl.[nom de la ressource].{identifiant de la ressource}`. Par exemple : `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database`.
+
+Le périmètre racine est 'owl'.
+
+## Périmètres personnalisés
+
+Les périmètres personnalisés sont éditables librement pour organiser les ressources dans OwlGrid. Ils peuvent être créés par exemple pour refléter la sécurité, les départements, équies, projets, etc.
+
+### Caractéristiques des périmètres personnalisés
+
+Un périmètre possède trois données par défaut : 
+- Identifiant unique;
+- Liste des ressources inclues;
+- Liste des périmètres enfants.
+
+Il est également possible d'ajouter des métadonnées optionnelles (nom, description, etc.).
+
+La hiérarchie des périmètres est représentée par un point : `owl.[nom du périmètre]`. Par exemple : `owl.sales.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `owl.sales.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database.xxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
+### Données complémentaires
+
+Les données complémentaires peuvent être ajoutées librement par les administrateurs d'OwlGrid. Par exemple, on peut ajouter les données "périmètre de l'entreprise", "création du groupe", etc.
+
+## Création d'un périmètre -> TODO utile ?
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Modification d'un périmètre
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+## Suppression d'un périmètre
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
