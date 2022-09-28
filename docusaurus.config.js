@@ -23,7 +23,7 @@ module.exports = {
             items: [
                 {
                     type: 'doc',
-                    docId: 'intro',
+                    docId: 'introduction/introduction',
                     position: 'left',
                     label: 'Documentation',
                 },
