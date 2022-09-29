@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'OwlGrid',
-    tagline: 'Your Data, as a Service',
+    tagline: 'Create cloud applications in a minute.',
     url: 'https://docs.owlgrid.com',
     baseUrl: '/',
     onBrokenLinks: 'throw',
