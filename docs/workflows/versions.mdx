@@ -1,0 +1,70 @@
+---
+sidebar_position: 10
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Versions
+
+## Introduction
+
+When a workflow is edited, a new version is attached to it. The version is a snapshot of the workflow at the time of editing. The version is immutable and cannot be changed. The version is used to track changes to the workflow and to provide a history of the workflow.
+
+### Difference with environment
+
+An environment is about resources instances while a version is about resources instances versions. Versions are not linked to environments, but only to the changes that are done on a workflow instance.
+
+In a git system, a version is a commit and an environment is a branch.
+
+## Properties
+
+### Identifier
+
+Each version has a unique identifier auto-generated.
+
+### Date and time
+
+Each version has a date and time when the workflow was saved.
+
+### Author
+
+The author of the version is the user who saved the workflow.
+
+### Retention period
+
+Versions are stored for 30 days by default. It is possible to change this value by TODO.
+
+## Operations 
+
+### List past versions
+
+It is possible to get the list of past versions and their configuration. 
+
+<Tabs groupId="client">
+  <TabItem value="web" label="Web">
+  Todo web
+  </TabItem>
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Versions history and rollback
+
+Since workflows versions are keeped, it is possible to rollback to it in order to restore a previous state of the workflow.
+
+<Tabs groupId="client">
+  <TabItem value="web" label="Web">
+  todo web
+  </TabItem>
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
