@@ -1,0 +1,91 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Spaces
+
+Spaces are the highest level of OwlGrid platform. A space is a collection of resources, users. A space is a logical container for all the resources of the platform, like a "cluster", it is isolated from other spaces (even if other spaces are attached to the same organization).
+
+## Relation with organizations
+
+A space is related to an organization. The organization represents an entreprise, or association and is used to manage the billing of the space. A space can be attached to only one organization. More information about organizations can be found in the [organizations documentation](/docs/concepts/organizations).
+
+## When to create a space?
+
+As spaces are the highest level of the platform, the resources it contains are isolated (they can not reference resources from other spaces). We recommand to create a space for a product, an organization, a specific project, etc. but NOT to isolate resources INSIDE a product, organzation or project. Indeed, the platform is designed to be used by multiple teams, and to be able to share resources between them. If you need to isolate resources, you should use the [perimeters](/docs/concepts/perimeters) segmentation.
+
+Example: The organization ACME Inc. has a product called "AliceApp" and a product called "BobApp". As the two products have separate users, teams, they should be in separate spaces. Moreover, the IT system of ACME Inc. is also managed in OwlGrid, so it has also a dedicated space.
+
+## Spaces properties
+
+A space has the following properties.
+
+### Identifer
+Id: the unique identifier of the space (auto-generated).
+
+### Base URL
+
+Base URL: the URL of the space (auto-generated). This URL is composed of the space id and OwlGrid base URL. For example, if the space id is "xxxxxxx" and the OwlGrid base URL is "owlgrid.com", the base URL of the space will be "xxxxxxx.owlgrid.com".
+
+This URL can be override with a custom domain name. More information about custom domain names can be found in the [custom domain names documentation](/docs/concepts/domain-names).
+
+### Metadata
+
+Metadata: custom metadata of the space (name, description, etc.). Learn more about [metadata](/docs/concepts/metadata).
+
+### Organization
+
+Organization: the organization the space is attached to. This can be changed after the creation of the space.
+
+### Server configuration
+
+Server configuration: the server provider, location, etc. Learn more about [server](/docs/concepts/server).
+
+## Operations
+
+### Get space information
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Create a space
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Update a space
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete a space
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
