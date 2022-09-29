@@ -4,30 +4,36 @@ sidebar_position: 1
 
 # Introduction
 
-OwlGrid is a workflow-oriented cloud platform.
+:::tip
+Spend your time building features, not doing tech.
+:::
 
-OwlGrid offers a unique place to build fastly applications that scales. Whether you need to create a backend for an application, to host a website or to manage integration in an information system, OwlGrid is the right choice.
+## Introduction
 
-Focus on the development of your application and the OwlGrid will take care of the rest.
+OwlGrid is a workflow-oriented cloud platform that helps you build, deploy and maintains robust backends in a minute.
 
-## Resources
+Whether you need to create a backend for an application, to host a website or to manage integration in an information system, OwlGrid is the right choice. Focus on the development of your application and the OwlGrid will take care of the rest.
 
-The platform contains several resources:
-- The [web administration interface](/docs/administrate): manage all resources through a user-friendly interface.
-- The [workflow engine](/docs/workflows): automatize workflows, schedule triggers, execute them at the right time and monitor usage.
-- The [data store](/docs/database): store data, metadata and files in a single database.
-- The [functions](/docs/functions): create custom functions to perform specific jobs.
-- The user management: keep your users and roles in sync with your applications.
-- The [hosting service](/docs/hosting): host web applications and websites at high-availability and speed all around the world.
-- The [monitoring](/docs/monitor): monitor your applications and websites.
-- The [messages](/docs/messages): publish and subscribe to messages with queues.
-- The [Alias](/docs/alias): manage Alias and link data model to it.
-- The [template repository](/docs/resources/templates): start with a template and customize it to your needs.
+### A "workflow-oriented" platform
+
+We though about: "what does a backend at its core?" and we came to conclusion that it *executes actions on resources*. So we developed a simple philosophy to focus on the core of the backend:
+- [Workflows](/docs/resources/workflows/introduction) are resilient programs triggered by an event (API call, date, database write, etc.), that runs a set of actions on resources and that returns a result (log, HTTP response, etc.).
+- [Resources](/docs/general/concepts/resources) are entities that performs actions, store data, call external services. Here is a list of some resources OwlGrid provides by default:
+  - [Database](/docs/resources/database/): store an manipulate data;
+  - [Functions](/docs/resources/functions/): execute serverless functions;
+  - [Hosting](/docs/resources/hosting/): host websites accessible through the web;
+  - Etc.
 
 ## Use cases
 
 Start by exploring use cases on the [use cases page](/docs/use-cases).
 
-## Usage
+## Hosting
 
-OwlGrid is an open source platform. You can use it on your own or with your own development team. The OwlGrid company also provides a fully managed version of the platform that allow you to start now implenting use cases without having to worry about the infastructure.
+OwlGrid is an open source platform. You can use it [on your own](/docs/general/owlgrid-hosting/self-hosted) or with your own development team. The OwlGrid company also provides a fully [managed version of the platform in the cloud](/docs/general/owlgrid-hosting/cloud) that allow you to start now implenting use cases without having to worry about the infastructure.
+
+## Ready to go?
+
+If you are very excited to start using OwlGrid, you can jump directyl to the [quickstart](/docs/general/quickstart/intro) to start using the platform in 5 minutes.
+
+If you want to learn more about the platform, you can start by reading the [philosophy](/docs/general/introduction/philosophy) and [concepts](/docs/general/concepts/intro) sections to have a complete understanding of OwlGrid.
