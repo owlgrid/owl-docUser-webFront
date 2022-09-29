@@ -2,7 +2,7 @@
 sidebar_position: 20
 ---
 
-# Administrate resources
+# Administration quickstart
 
 There are several ways to administrate the OwlGrid platform.
 
