@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Welcome to OwlGrid
+# Introduction
 
 OwlGrid is a workflow-oriented cloud platform.
 
