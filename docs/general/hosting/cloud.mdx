@@ -33,6 +33,12 @@ You can also contact us at [hello@owlgrid.com](mailto:hello@owlgrid.com).
 
 ## Architecture
 
+OwlGrid Cloud Control Tower is an Owlgrid space dedicated to Cloud Spaces management. This space contains the following modules:
+- Organizations: stores and execute organizations processes. For example when a new customer creates an account on OwlGrid Cloud, it adds the organization (which is required to create and manage cloud spaces).
+- Administrators: stores the list of administrators and execute processes (account creation, etc.). Administrators are related to one or multiple spaces.
+- Spaces: stores spaces information (hosting, address, administrators, etc.) and transfer usage monitoring data to organizations and billing.
+- Billing: stores billing information and execute billing processes.
+
 ### Functional architecture
 
 ![OwlGrid Cloud Functional Architecture](/img/general/hosting/cloud/functional.jpg)
