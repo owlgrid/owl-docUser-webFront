@@ -35,11 +35,3 @@ OwlGrid is perfect to develop business workflows inside organizations. IT Team a
 ### Data integration between several applications
 
 Todo.
-
-Architecture example of data integration between 3 applications.
-
-![Data integration use case](/img/use-cases/use-case-1.jpg)
-
-### Data Warehouse
-
-Todo.

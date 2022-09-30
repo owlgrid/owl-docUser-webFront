@@ -8,7 +8,17 @@ sidebar_position: 1
 
 Before starting to administrate your OwlGrid platform, you should understand some concepts. The following schema gives an overview of the main components of the platform. These concepts are explained in the following sections.
 
-![Components overview](/img/concepts/components_overview.jpg)
+
+#### Applicative architecture
+
+A **space** runs several resources that can be used to create applications. A **resource** is a set of services that can be used to create applications. OwlGrid can be self-hosted (spaces are open-source) or hosted by OwlGrid Cloud. Learn more about OwlGrid Cloud [here](/docs/general/hosting/cloud).
+
+![Applicative architecture overview](/img/general/concepts/introduction/applicative.jpg)
+
+
+## Spaces
+
+An OwlGrid instance is called a [spaces](/docs/concepts/spaces). 
 
 ## Resources
 
@@ -16,18 +26,12 @@ Resources are components that can be used to create applications. They are the b
 
 The sections [workflows](/docs/workflows/) and [database](/docs/database/) give more information about it.
 
-### Spaces and perimeters
+### Perimeters
 
-An OwlGrid instance is called a [spaces](/docs/concepts/spaces). Inside a space, resources are organized in [perimeters](/docs/concepts/perimeters).
+Inside a space, resources are organized in [perimeters](/docs/concepts/perimeters).
 
 ### Templates
 
 Templates are resources configuration that can be used to reproduce configurations. They can be used to create new resources or to get inspiration.
 
 Templates are maintained by the community and can be found on the [OwlGrid GitHub repository](https://github.com/owlgrid/templates).
-
-## Identities
-
-Identities are users that can access your platform. They can be created by administrators or by users themselves.
-
-The section [identities](/docs/identities/) gives more information about it.
