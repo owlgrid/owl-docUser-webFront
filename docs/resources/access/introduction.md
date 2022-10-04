@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Introduction
 
-Toutes les interactions avec les ressources d'OwlGrid sont effectuées par des [utilisateurs](/docs/identities/users) (physiques ou machines) qui ont un certain niveau de droit. La ressource "Identities" a pour rôle d'administrer les identités, les authentifier et les administrer les droits dans l'écosystème OwlGrid.
+Toutes les interactions avec les ressources d'OwlGrid sont effectuées par des [utilisateurs](users) (physiques ou machines) qui ont un certain niveau de droit. La ressource "Identities" a pour rôle d'administrer les identités, les authentifier et les administrer les droits dans l'écosystème OwlGrid.
 
-Les [identités](/docs/identities/users) permettent de définir les [utilisateurs](/docs/identities/users) et les [groupes d'utilisateurs](/docs/identities/groups). Ces utilisateurs peuvent être des personnes physiques ou bien des machines. Les identitées peuvent être regroupées dans des [groupes](/docs/identities/groups). Ces groupes sont organisés hiérarchiquement.
+Les [identités](users) permettent de définir les [utilisateurs](users) et les [groupes d'utilisateurs](groups). Ces utilisateurs peuvent être des personnes physiques ou bien des machines. Les identitées peuvent être regroupées dans des [groupes](groups). Ces groupes sont organisés hiérarchiquement.
 
-Les [droits](/docs/identities/rights) sont des [actions](/docs/identities/actions) sur des [périmètres](/docs/identities/perimeters). Les périmètres sont des instances de ressources ou des groupes d'instances de ressources. Les droits sont assignés aux identités et aux groupes d'identités.
+Les [droits](rights) sont des [actions](actions) sur des [périmètres](/docs/general/concepts/perimeters). Les périmètres sont des instances de ressources ou des groupes d'instances de ressources. Les droits sont assignés aux identités et aux groupes d'identités.
 
 ## Bonnes pratiques
 

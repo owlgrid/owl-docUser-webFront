@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Use cases
 
-OwlGrid use cases are endless. This page shows common use cases, the [templates](resources/templates.md) resources gives also good examples of technical architectures and usage.
+OwlGrid use cases are endless. This page shows common use cases, the [templates](/docs/general/templates/introduction) resources gives also good examples of technical architectures and usage.
 
 ## Applications
 

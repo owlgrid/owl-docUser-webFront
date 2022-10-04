@@ -16,7 +16,7 @@ From a functional perspective, a backend is only workflows doing actions on reso
 
 ### Templates
 
-Most of the time, you don't want to build everything from scratch. You want to use existing components and to build your application with them. That's why we have built a template system. You can find more information about templates in the [templates section](/docs/concepts/templates/).
+Most of the time, you don't want to build everything from scratch. You want to use existing components and to build your application with them. That's why we have built a template system. You can find more information about templates in the [templates section](/docs/general/templates/introduction).
 
 ### Transparency
 
