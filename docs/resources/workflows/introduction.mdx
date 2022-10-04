@@ -78,8 +78,22 @@ Modèle de données :
     - Name : human-readable name
     - Metadata : custom metadata of the space (name, description, etc.)
     - Active : boolean that indicates if the workflow is active or not (callable)
-    - Environment : the environment in which the workflow is executed
-- Trigger :
+    - Environment : if of the environment in which the workflow is executed
+    - versionCurrent: id of the current version
+    - versionHistory: list of versions
+    - Perimeters: list of perimeters
+- Version:
     - Id : unique identifier
-    - Type : http, date, etc.
-    - Access : security group
+    - date: edition date
+    - author: id of the author
+    - Trigger :
+        - Id : unique identifier
+        - Type : http, date, etc.
+        - Access : security group
+    - Action :
+        - Id : unique identifier
+        - Type : condition, httpCall, databaseCall, response, etc.
+        - ParentAction: id of the parent action
+        - Input: parameters
+        - Payload: data
+        - Output: parameters
