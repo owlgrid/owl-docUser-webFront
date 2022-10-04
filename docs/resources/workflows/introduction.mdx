@@ -61,3 +61,25 @@ Examples:
 ### Fault tolerance
 
 ### Error handling
+
+TODO actions:
+- Créer un workflow (id, nom, metadata, active, environnement)
+- Editer un trigger de workflow (id, type: http, date, etc., accès (quel groupe de sécurité))
+- Migrer un workflow dans un autre environnement (id, environnement) -> possible même si le workflow est actif
+    - Check que l'utilisateur a les droits
+    - Check que le process de changement d'environnement n'est pas violé (ex -> passer de dev à prood interdit => à creuser)
+    - Check que les variables ne sont pas nulles dans l'environnement cible
+    - Check que les connections d'API sont toujours valides (?)
+- 
+
+Modèle de données :
+- Workflow :
+    - Id : unique identifier
+    - Name : human-readable name
+    - Metadata : custom metadata of the space (name, description, etc.)
+    - Active : boolean that indicates if the workflow is active or not (callable)
+    - Environment : the environment in which the workflow is executed
+- Trigger :
+    - Id : unique identifier
+    - Type : http, date, etc.
+    - Access : security group
