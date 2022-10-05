@@ -26,12 +26,6 @@ Todo
 
 OwlGrid is perfect to develop business workflows inside organizations. IT Team always need to choose between drag and drop solutions (Zapier) that doesn't scale well and aren't made for large organizations or traditional cloud solutions that are very efficient at scale, but complex and slow to develop and administrate. OwlGrid brings the best of both worlds.
 
-|                   | Task automation solutions | Cloud solutions | OwlGrid   |
-|-------------------|-------------------------|----------------|-----------|
-| Development speed | ✅ Fast                    | ❌ Very slow      | ✅ Fast      |
-| Performance       | ❌ Slow                    | ✅ Can be fast    | ✅ Fast      |
-| Scalability       | ❌ Impossible              | ✅ Can be good    | ✅ Excellent |
-
 ### Data integration between several applications
 
 Todo.

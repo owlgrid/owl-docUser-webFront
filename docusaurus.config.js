@@ -11,7 +11,7 @@ module.exports = {
     projectName: 'doc-public-front', // Usually your repo name.
     themeConfig: {
         colorMode: {
-            disableSwitch: true,
+            disableSwitch: false,
             respectPrefersColorScheme: true
         },
         navbar: {
