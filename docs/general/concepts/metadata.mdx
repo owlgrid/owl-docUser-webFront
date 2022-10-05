@@ -11,11 +11,28 @@ Metadata are additional properties that can be attached to any resource.
 
 ### Use cases
 
+#### Resources metadata
+
 Metadata are used to add additional information to a resource. They can be used to add information that is not part of the resource itself, but is still useful to have. For example, a resource can have a metadata property that indicates the date when the resource was created.
 
 It can also be used to group resources together in a semantic way. For example, a metadata "deliveryStatus" can be used to indicate whether a resource is in production, in development, or in testing (this metadata is not included by default in OwlGrid).
 
 Metadata can be used to filter or find data in search queries.
+
+#### Data metadata
+
+Metadata can also be used in the [database](/docs/resources/database/introduction) resource to add additional information to the data. It can attach to models, objects or properties information about:
+- Movement
+    - Where does the data comes from?
+    - Where does the data goes to?
+    - What does the data when it gets there?
+    - How to access the data?
+- Ownership
+    - Who owns the data?
+    - Who can access the data?
+- Meaning
+    - What does the data mean?
+    - Which ontology can describe the data? (mapping to meaningful semantic concepts) -> to complete with [here](https://blog.palantir.com/ontology-finding-meaning-in-data-palantir-rfx-blog-series-1-399bd1a5971b)
 
 ## Metadata catalog
 
