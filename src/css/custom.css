@@ -25,6 +25,9 @@
     --ifm-color-primary-light: #2586ff;
     --ifm-color-primary-lighter: #328dff;
     --ifm-color-primary-lightest: #5aa3ff;
+    --ifm-footer-background-color: #0F1F37;
+    --ifm-footer-title-color: #fff;
+    --ifm-footer-link-color: #D9D9D9;
 }
 
 [data-theme='dark'] {
@@ -42,4 +45,14 @@
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+.home-hero-custom {
+    background: linear-gradient(316.31deg, #945FFE 10.57%, #0079FF 93.61%);
+    color: #fff;
+}
+
+.footer-dark {
+    background: linear-gradient(316.31deg, #945FFE 10.57%, #0079FF 93.61%);
+    color: #fff;
 }
