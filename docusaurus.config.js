@@ -6,7 +6,7 @@ module.exports = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: '/img/favicon.ico',
     organizationName: 'owlgrid', // Usually your GitHub org/user name.
     projectName: 'doc-public-front', // Usually your repo name.
     themeConfig: {
@@ -83,6 +83,7 @@ module.exports = {
             ],
             copyright: `Copyright © ${new Date().getFullYear()} OwlGrid`,
         },
+
     },
     presets: [
         [
@@ -90,9 +91,9 @@ module.exports = {
             {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    // Please change this to your repo.
-                    editUrl:
-                        'https://github.com/owlgrid/doc-public-front/',
+                    editUrl: 'https://github.com/owlgrid/doc-public-front/',
+                    docLayoutComponent: "@theme/DocPage",
+                    docItemComponent: "@theme/ApiItem"
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
@@ -100,4 +101,34 @@ module.exports = {
             },
         ],
     ],
+    plugins: [
+        [
+            'docusaurus-plugin-openapi-docs',
+            {
+                id: "apiDocs",
+                docsPluginId: "classic",
+                config: {
+                    petstore: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+                        specPath: "openapi/petstore-0.1.0.yaml", // Path to designated spec file
+                        outputDir: "docs/references/API/Petstore", // Output directory for generated .mdx docs
+                        sidebarOptions: {
+                            groupPathsBy: "tag",
+                        },
+                        // version: "0.1.0", // Current version
+                        // label: "v0.1.0", // Current version label
+                        // baseUrl: "/docs/references/API/swagger-Petstore-yaml", // Leading slash is important
+                        // versions: {
+                        //     "0.0.1": {
+                        //         specPath: "openapi/petstore-0.0.1.yaml",
+                        //         outputDir: "docs/references/API/Petstore/1.0.0", // No trailing slash
+                        //         label: "v1.0.0",
+                        //         baseUrl: "/references/API/Petstore/1.0.0/swagger-petstore-yaml", // Leading slash is important
+                        //     },
+                        // },
+                    }
+                }
+            },
+        ]
+    ],
+    themes: ["docusaurus-theme-openapi-docs"], // Allows use of @theme/ApiItem and other components
 };
