@@ -28,6 +28,8 @@
     --ifm-footer-background-color: #0F1F37;
     --ifm-footer-title-color: #fff;
     --ifm-footer-link-color: #D9D9D9;
+    --ifm-heading-color: #0F1F37;
+    /* --ifm-navbar-link-color: #945FFE; */
 }
 
 [data-theme='dark'] {
@@ -38,6 +40,7 @@
     --ifm-color-primary-light: #1aacff;
     --ifm-color-primary-lighter: #26b1ff;
     --ifm-color-primary-lightest: #4dbfff;
+    --ifm-heading-color: #fff;
 }
 
 .docusaurus-highlight-code-line {
