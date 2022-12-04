@@ -108,23 +108,30 @@ module.exports = {
                 id: "apiDocs",
                 docsPluginId: "classic",
                 config: {
-                    petstore: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-                        specPath: "openapi/petstore-0.1.0.yaml", // Path to designated spec file
-                        outputDir: "docs/references/API/Petstore", // Output directory for generated .mdx docs
+                    // petstore: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+                    //     specPath: "openapi/petstore-0.1.0.yaml", // Path to designated spec file
+                    //     outputDir: "docs/references/API/Petstore", // Output directory for generated .mdx docs
+                    //     sidebarOptions: {
+                    //         groupPathsBy: "tag",
+                    //     },
+                    //     // version: "0.1.0", // Current version
+                    //     // label: "v0.1.0", // Current version label
+                    //     // baseUrl: "/docs/references/API/swagger-Petstore-yaml", // Leading slash is important
+                    //     // versions: {
+                    //     //     "0.0.1": {
+                    //     //         specPath: "openapi/petstore-0.0.1.yaml",
+                    //     //         outputDir: "docs/references/API/Petstore/1.0.0", // No trailing slash
+                    //     //         label: "v1.0.0",
+                    //     //         baseUrl: "/references/API/Petstore/1.0.0/swagger-petstore-yaml", // Leading slash is important
+                    //     //     },
+                    //     // },
+                    // },
+                    administration: {
+                        specPath: "openapi/administration.json",
+                        outputDir: "docs/references/API/Administration",
                         sidebarOptions: {
                             groupPathsBy: "tag",
                         },
-                        // version: "0.1.0", // Current version
-                        // label: "v0.1.0", // Current version label
-                        // baseUrl: "/docs/references/API/swagger-Petstore-yaml", // Leading slash is important
-                        // versions: {
-                        //     "0.0.1": {
-                        //         specPath: "openapi/petstore-0.0.1.yaml",
-                        //         outputDir: "docs/references/API/Petstore/1.0.0", // No trailing slash
-                        //         label: "v1.0.0",
-                        //         baseUrl: "/references/API/Petstore/1.0.0/swagger-petstore-yaml", // Leading slash is important
-                        //     },
-                        // },
                     }
                 }
             },
