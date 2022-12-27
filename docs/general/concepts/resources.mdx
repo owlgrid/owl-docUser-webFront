@@ -9,74 +9,32 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The amount of resources included in a [space](/docs/general/concepts/spaces) can be very large. **Perimeters** can create partitions within a space to help you manage the resources. You can create perimeters to separate resources by team, environment, or any other criteria that makes sense for your organization.
+Resources are composed of several services. Technical terminology: component-product (internal or external).
 
-As identities are grouped by (groups)[/docs/resources/access/groups], you can group resources inside perimeters.
+Resources list (non-exhaustive):
+- Database: store and manipulate data.
+- Hosting: host web applications and websites.
+- Monitoring: monitor usage of your applications.
+- Workflow: execute actions on resources.
+- Administration: manage administrators, give right, monitor usage, billing, etc.
+- OwlGrid documentation (this): know how to manage platform resources.
+- Portal: manage all resources and usage through an user interface.
+- Templates: use architecture templates and publish yours.
+- Notifications: get informed about OwlGrid status, alerts and updates.
+- Etc.
 
-Perimeters use inheritance to create an arborescence of resources in order to represents your organization. It is possible to create several perimeters typologies to fit multiple organizations structures inside your space. De facto, a resource can belong to serveral perimeters.
+### Services
 
-### Relation to rights
+Resources are composed of services (in technical terminology: component-technical). A service is composed of a core that runs the logic and interfaces; Interfaces are used to communicate with other services (databases, etc.) and the outside world.
 
-A [right](/docs/resources/access/rights) is an action applied to a perimeter.
+### Objects
 
-## Périmètres systèmes
+Objects are entities used to store data.
 
-Chaque ressource appartient à au moins un périmètre qui est le paramètre système. Ce périmètre est créé automatiquement lors de la création de la ressource et ne peut pas être supprimé. Il est possible de le renommer.
+#### Operations
 
-#### Caractéristiques des périmètres système
+A service interface offers a set of operations. Each operation has a name composed of an action (get, set, list, etc.) and an object name (Workspace, Perimeter, etc.).
 
-L'identifiant est composé de la manière suivante : `owl.[nom de la ressource].{identifiant de la ressource}`. Par exemple : `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `owl.workspace.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database`.
+Operations are identified following the pattern: `[resource-id].[action][Object-name]`. For example: `owl.administration.getWorkspace`, `owl.administration.organization.listAdministrators`, etc.
 
-Le périmètre racine est 'owl'.
-
-## Périmètres personnalisés
-
-Les périmètres personnalisés sont éditables librement pour organiser les ressources dans OwlGrid. Ils peuvent être créés par exemple pour refléter la sécurité, les départements, équies, projets, etc.
-
-### Caractéristiques des périmètres personnalisés
-
-Un périmètre possède trois données par défaut : 
-- Identifiant unique;
-- Liste des ressources inclues;
-- Liste des périmètres enfants.
-
-Il est également possible d'ajouter des métadonnées optionnelles (nom, description, etc.).
-
-La hiérarchie des périmètres est représentée par un point : `owl.[nom du périmètre]`. Par exemple : `owl.sales.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, `owl.sales.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.database.xxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
-
-### Données complémentaires
-
-Les données complémentaires peuvent être ajoutées librement par les administrateurs d'OwlGrid. Par exemple, on peut ajouter les données "périmètre de l'entreprise", "création du groupe", etc.
-
-## Création d'un périmètre -> TODO utile ?
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-## Modification d'un périmètre
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-## Suppression d'un périmètre
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
+An operation has parameters and returns a value. Parameters can be related to data (payload) or to metadata (pagination, sorting, etc.).

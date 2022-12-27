@@ -1,0 +1,355 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Administration",
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://api.owlgrid.com/v1/administration"
+        }
+    ],
+    "paths": {
+        "/organizations": {
+            "get": {
+                "summary": "List organizations",
+                "operationId": "listOrganizations",
+                "tags": [
+                    "organizations",
+                    "list"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/generic_page_size"
+                    },
+                    {
+                        "$ref": "#/components/parameters/generic_page_token"
+                    },
+                    {
+                        "$ref": "#/components/parameters/generic_order_by"
+                    },
+                    {
+                        "$ref": "#/components/parameters/generic_filter"
+                    },
+                    {
+                        "$ref": "#/components/parameters/generic_properties"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A paged array of organizations.",
+                        "headers": {
+                            "total_size": {
+                                "$ref": "#/components/headers/generic_total_size"
+                            },
+                            "next_page_token": {
+                                "$ref": "#/components/headers/generic_next_page_token"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/administration_organizations_list_response"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/generic_error_response"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create an organization",
+                "operationId": "createOrganization",
+                "tags": [
+                    "organizations",
+                    "create"
+                ],
+                "requestBody": {
+                    "description": "Organization to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/administration_organizations_create_request"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Organization successfully created."
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/generic_error_response"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/organizations/{id}": {
+            "get": {
+                "summary": "Get organization",
+                "operationId": "getOrganization",
+                "tags": [
+                    "organizations",
+                    "get"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/generic_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/generic_properties"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An organization object.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/administration_organizations_get_response"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/generic_error_response"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "administration_organizations_list_response": {
+                "type": "array",
+                "maxItems": 100,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The unique identifier for an organization"
+                        },
+                        "name": {
+                            "type": "string",
+                            "description": "The name of the organization in the format of 'organizations/*'"
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "The human readable name of the organization"
+                        },
+                        "created_at": {
+                            "type": "string",
+                            "description": "The time the organization object was created"
+                        },
+                        "updated_at": {
+                            "type": "string",
+                            "description": "The time the organization object was last updated"
+                        },
+                        "metadata": {
+                            "type": "object",
+                            "description": "A hash of key/value pairs that can be used to store additional information about the organization"
+                        }
+                    },
+                    "required": [
+                        "id"
+                    ]
+                }
+            },
+            "generic_error_response": {
+                "type": "object",
+                "properties": {
+                    "operation": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "request_id": {
+                        "type": "string"
+                    },
+                    "operation_id": {
+                        "type": "string"
+                    },
+                    "response_id": {
+                        "type": "string"
+                    },
+                    "error_id": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                                "type": "string"
+                            },
+                            "details": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "operation",
+                    "status",
+                    "request_id",
+                    "operation_id",
+                    "response_id",
+                    "error_id"
+                ]
+            },
+            "administration_organizations_create_request": {
+                "type": "object",
+                "properties": {
+                    "display_name": {
+                        "type": "string",
+                        "description": "The human readable name of the organization"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "A hash of key/value pairs that can be used to store additional information about the organization"
+                    }
+                }
+            },
+            "administration_organizations_get_response": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier for an organization"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the organization in the format of 'organizations/*'"
+                    },
+                    "display_name": {
+                        "type": "string",
+                        "description": "The human readable name of the organization"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "description": "The time the organization object was created"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "description": "The time the organization object was last updated"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "A hash of key/value pairs that can be used to store additional information about the organization"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            }
+        },
+        "parameters": {
+            "generic_page_size": {
+                "name": "page_size",
+                "in": "query",
+                "description": "The maximum number of items to return.",
+                "required": false,
+                "schema": {
+                    "default": 10,
+                    "type": "integer",
+                    "maximum": 100,
+                    "format": "int32"
+                }
+            },
+            "generic_page_token": {
+                "name": "page_token",
+                "in": "query",
+                "description": "The next_page_token value returned from a previous List request, if any.",
+                "required": false,
+                "schema": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "generic_order_by": {
+                "name": "order_by",
+                "in": "query",
+                "description": "The sorting order for list results.",
+                "required": false,
+                "schema": {
+                    "default": "update_time desc",
+                    "type": "string",
+                    "description": "The string value follow SQL syntax: comma separated list of fields. For example: \"foo,bar\". The default sorting order is ascending. To specify descending order for a field, a suffix \" desc\" should be appended to the field name. For example: \"foo desc,bar\"."
+                }
+            },
+            "generic_filter": {
+                "name": "filter",
+                "in": "query",
+                "description": "The filter for list results.",
+                "required": false,
+                "schema": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "generic_properties": {
+                "name": "properties",
+                "in": "query",
+                "description": "The properties returned in the object. By default, all properties are returned.",
+                "required": false,
+                "schema": {
+                    "default": "",
+                    "type": "string"
+                }
+            },
+            "generic_id": {
+                "name": "id",
+                "in": "path",
+                "description": "Object identifier.",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "headers": {
+            "generic_total_size": {
+                "description": "The total count of items in the list irrespective of pagination.",
+                "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "generic_next_page_token": {
+                "description": "Token to retrieve the next page of results, or empty if there are no more results in the list.",
+                "schema": {
+                    "default": "",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
