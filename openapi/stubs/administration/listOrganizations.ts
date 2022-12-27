@@ -13,13 +13,17 @@ export const listOrganizations = async (req: ListQueryParameters): Promise<ListR
     // Check that the user is authorized to do the action
     // TODO or on the gateway?
 
-    const data: AdministrationOrganizationsListResponse[];
+    let data: AdministrationOrganizationsListResponse[];
 
     // Run query to fetch database
     const rawData = await db.listDocuments(constants.administration.organizations.collection_id, req);
 
     // Extract objects and assert type
-    data = rawData.data as organizations;
+    data = rawData.data as AdministrationOrganizationsListResponse[];
+
+    // Extract metadata
+    const total_size = rawData.total_size;
+    const next_page_token = rawData.next_page_token;
 
     // Generate resource name
     const name = generateName(constants.administration.name, constants.administration.organizations.name);
@@ -27,8 +31,8 @@ export const listOrganizations = async (req: ListQueryParameters): Promise<ListR
     // Return result
     return {
         name,
-        total_size: data.totalResults,
-        next_page_token: "TODO",
-        data: data
+        total_size,
+        next_page_token,
+        data
     };
 };
