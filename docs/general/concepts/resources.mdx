@@ -7,11 +7,22 @@ import TabItem from '@theme/TabItem';
 
 # Resources
 
-## Introduction
+Resources can be require to be well identified. This page contains the naming convention used to identify resources.
 
-Resources are composed of several services. Technical terminology: component-product (internal or external).
+## Resources typology
 
-Resources list (non-exhaustive):
+There are two level of abstraction in OwlGrid: **technical** and **product**. The convention is to manipulate concepts at the **product** level (which contains the functional logic).
+
+### Technical resources
+
+Technical resources, also named `services` are technical components on which the resources are based. They are used on the technical level. There are not meant to be used in resources description.
+
+A service is composed of a core that runs the logic and interfaces; Interfaces are used to communicate with other services (databases, etc.) and the outside world.
+
+
+### Product resources
+
+Base product resources are (non-exhaustive):
 - Database: store and manipulate data.
 - Hosting: host web applications and websites.
 - Monitoring: monitor usage of your applications.
@@ -23,18 +34,24 @@ Resources list (non-exhaustive):
 - Notifications: get informed about OwlGrid status, alerts and updates.
 - Etc.
 
-### Services
+### Resources identifiers
 
-Resources are composed of services (in technical terminology: component-technical). A service is composed of a core that runs the logic and interfaces; Interfaces are used to communicate with other services (databases, etc.) and the outside world.
+Resources can be inherited from parent resources. They can be either a terminal resource instance, or a group of resources instances. Composition of the id: `[baseResourceName].[resources].[resource-id]`.
 
-### Objects
+The base resource name can be either `owl`, or a workspace id (which is a diminution of: `owl.administration.organizations.[organizationId].workspaces.[workspaceId]`).
 
-Objects are entities used to store data.
+Examples:
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces`;
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.6f1765bf-9599-4aeb-8f27-c42589899a0b`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.9aaf7519-6f1c-4235-9419-fc34869019f5`;
 
-#### Operations
+### Operations on resources
 
-A service interface offers a set of operations. Each operation has a name composed of an action (get, set, list, etc.) and an object name (Workspace, Perimeter, etc.).
+Operations are an action verb on a resource. Example: `get`, `set`, `list`, `create`, `delete`, etc. There are specified in the documentation of each resource.
 
-Operations are identified following the pattern: `[resource-id].[action][Object-name]`. For example: `owl.administration.getWorkspace`, `owl.administration.organization.listAdministrators`, etc.
-
-An operation has parameters and returns a value. Parameters can be related to data (payload) or to metadata (pagination, sorting, etc.).
+Examples:
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.create`;
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.6f1765bf-9599-4aeb-8f27-c42589899a0b.getDetails`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.list`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.9aaf7519-6f1c-4235-9419-fc34869019f5.delete`.

@@ -17,7 +17,7 @@ export const getOrganization = async (objectId: uid, properties: string[]): Prom
     let data: AdministrationOrganizationsGetResponse;
 
     // Run query to fetch database
-    const dataRaw = await db.getDocument(constants.administration.organizations.collection_id, objectId, { properties: properties });
+    const dataRaw = await db.getDocument(constants.administration.organizations.collection_id, objectId, properties);
 
     // Extract object
     data = dataRaw.data as AdministrationOrganizationsGetResponse;

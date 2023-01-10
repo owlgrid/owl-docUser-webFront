@@ -1,6 +1,5 @@
 import { constants } from "@owlgrid-dev/constants";
 import { generateName } from "@owlgrid-dev/generators";
-import { ListQueryParameters, ListResponse } from "@owlgrid-dev/http";
 import { db } from "../connectors/database";
 import { AdministrationOrganizationsListResponse } from "@owlgrid-dev/types";
 
@@ -9,21 +8,21 @@ import { AdministrationOrganizationsListResponse } from "@owlgrid-dev/types";
  * @param req query parameters
  * @returns list of organizations
  */
-export const listOrganizations = async (req: ListQueryParameters): Promise<ListResponse> => {
+export const listOrganizations = async (pageSize: number, pageToken?: string, orderBy?: string, filter?: string, properties?: string[]): Promise<{ data: AdministrationOrganizationsListResponse[], name: string, totalSize: number, nextPageToken: string }> => {
     // Check that the user is authorized to do the action
     // TODO or on the gateway?
 
     let data: AdministrationOrganizationsListResponse[];
 
     // Run query to fetch database
-    const rawData = await db.listDocuments(constants.administration.organizations.collection_id, req);
+    const rawData = await db.listDocuments(constants.administration.organizations.collection_id, pageSize, pageToken, orderBy, filter, properties);
 
     // Extract objects and assert type
     data = rawData.data as AdministrationOrganizationsListResponse[];
 
     // Extract metadata
-    const total_size = rawData.total_size;
-    const next_page_token = rawData.next_page_token;
+    const totalSize = rawData.totalSize || 0;
+    const nextPageToken = rawData.nextPageToken || '';
 
     // Generate resource name
     const name = generateName(constants.administration.name, constants.administration.organizations.name);
@@ -31,8 +30,8 @@ export const listOrganizations = async (req: ListQueryParameters): Promise<ListR
     // Return result
     return {
         name,
-        total_size,
-        next_page_token,
+        totalSize,
+        nextPageToken,
         data
     };
 };
