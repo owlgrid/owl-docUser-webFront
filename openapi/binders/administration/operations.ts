@@ -10,7 +10,7 @@ import { listOrganizations } from '../controllers/listOrganizations';
                 operationType: 'create' as OperationType,
                 operationPath: '/organizations',
                 operationName: 'createOrganization',
-                operationId: 'administration.organizations.create',
+                operationId: 'owl.administration.organizations.create',
                 createController: createOrganization
             },
 {
@@ -18,7 +18,7 @@ import { listOrganizations } from '../controllers/listOrganizations';
                 operationType: 'get' as OperationType,
                 operationPath: '/organizations/{id}',
                 operationName: 'getOrganization',
-                operationId: 'administration.organizations.get',
+                operationId: 'owl.administration.organizations.get',
                 getController: getOrganization
             },
 {
@@ -26,6 +26,6 @@ import { listOrganizations } from '../controllers/listOrganizations';
                 operationType: 'list' as OperationType,
                 operationPath: '/organizations',
                 operationName: 'listOrganizations',
-                operationId: 'administration.organizations.list',
+                operationId: 'owl.administration.organizations.list',
                 listController: listOrganizations
             }];
