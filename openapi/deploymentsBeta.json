@@ -1,0 +1,27 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "deployments",
+        "license": { "name": "OwlGrid" }
+    },
+    "servers": [
+        { "url": "https://app.owlgrid.com/{workspaceId}/owl-deployment/beta/" }
+    ],
+    "paths": {
+        "/deployments": {
+            "get": {
+                "summary": "List the deployments of a workspace.",
+                "operationId": "listDeployments",
+                "tags": ["deployments", "beta", "deployments", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        }
+    }
+}

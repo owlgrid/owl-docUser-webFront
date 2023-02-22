@@ -1,0 +1,29 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v1",
+        "title": "administration",
+        "license": { "name": "OwlGrid" }
+    },
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/{workspaceId}/owl-administration/v1/"
+        }
+    ],
+    "paths": {
+        "/organizations": {
+            "get": {
+                "summary": "List organizations available on the platform.",
+                "operationId": "listOrganizations",
+                "tags": ["administration", "v1", "organizations", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        }
+    }
+}

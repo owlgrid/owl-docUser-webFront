@@ -1,0 +1,105 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "perimeters",
+        "license": { "name": "OwlGrid" }
+    },
+    "servers": [
+        { "url": "https://app.owlgrid.com/{workspaceId}/owl-perimeter/beta/" }
+    ],
+    "paths": {
+        "/perimeters": {
+            "get": {
+                "summary": "Get a list of perimeters objects.",
+                "operationId": "listPerimeters",
+                "tags": ["perimeters", "beta", "perimeters", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new perimeter in the database.",
+                "operationId": "createPerimeter",
+                "tags": ["perimeters", "beta", "perimeters", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/perimeters/{perimeterId}/resources": {
+            "post": {
+                "summary": "Attach a workspace resource to a perimeter.",
+                "operationId": "attachReourceToPerimeter",
+                "tags": [
+                    "perimeters",
+                    "beta",
+                    "perimeters",
+                    "resources",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/perimeters/{perimeterId}": {
+            "get": {
+                "summary": "Get a perimeter.",
+                "operationId": "getPerimeter",
+                "tags": ["perimeters", "beta", "perimeters", "get"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a perimeter in the database and all its documents.",
+                "operationId": "deletePerimeter",
+                "tags": ["perimeters", "beta", "perimeter", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/perimeters/{perimeterId}/resources/{resourceId}": {
+            "delete": {
+                "summary": "Detach a workspace resource from a perimeter.",
+                "operationId": "detachReourceFromPerimeter",
+                "tags": [
+                    "perimeters",
+                    "beta",
+                    "perimeters",
+                    "resources",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        }
+    }
+}

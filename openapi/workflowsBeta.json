@@ -1,0 +1,55 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "workflows",
+        "license": { "name": "OwlGrid" }
+    },
+    "servers": [
+        { "url": "https://app.owlgrid.com/{workspaceId}/owl-workflow/beta/" }
+    ],
+    "paths": {
+        "/workflows/{workflowId}": {
+            "get": {
+                "summary": "Get a workflow.",
+                "operationId": "getWorkflow",
+                "tags": ["workflows", "beta", "workflows", "get"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/workflows": {
+            "get": {
+                "summary": "List the workflows of a workspace.",
+                "operationId": "listWorkflows",
+                "tags": ["workflows", "beta", "workflows", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/workflows/all/runs": {
+            "get": {
+                "summary": "List the workflows runs of a workspace.",
+                "operationId": "listWorkflowsRuns",
+                "tags": ["workflows", "beta", "workflows", "runs", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        }
+    }
+}
