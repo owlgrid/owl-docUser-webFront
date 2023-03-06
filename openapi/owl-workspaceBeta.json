@@ -1,0 +1,129 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "owl-workspace",
+        "license": { "name": "OwlGrid" }
+    },
+    "servers": [{ "url": "https://app.owlgrid.com/falseowl-workspace/beta/" }],
+    "paths": {
+        "/repositories": {
+            "get": {
+                "summary": "List all repositories.",
+                "operationId": "listRepositories",
+                "tags": ["owl-workspace", "beta", "repositories", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new repository connection.",
+                "operationId": "connectRepository",
+                "tags": ["owl-workspace", "beta", "repositories", "connect"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/environments": {
+            "get": {
+                "summary": "List all environments of the repository.",
+                "operationId": "listEnvironments",
+                "tags": ["owl-workspace", "beta", "environments", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new environment. This operation needs that at least one repository is connected to the workspace.",
+                "operationId": "createEnvironment",
+                "tags": ["owl-workspace", "beta", "environments", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/environments/:environmentId": {
+            "get": {
+                "summary": "Get a workspace environment.",
+                "operationId": "getEnvironment",
+                "tags": ["owl-workspace", "beta", "environments", "get"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an environment and its resources. This operation can not be undone.",
+                "operationId": "deleteEnvironment",
+                "tags": ["owl-workspace", "beta", "environments", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/repositories/:repositoryId": {
+            "delete": {
+                "summary": "Delete a repository collection. This operation can not be undone.",
+                "operationId": "deleteRepositoryConnection",
+                "tags": ["owl-workspace", "beta", "repositories", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/workspaces/:workspaceId": {
+            "get": {
+                "summary": "Get a workspace.",
+                "operationId": "getWorkspace",
+                "tags": ["owl-workspace", "beta", "workspaces", "get"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a workspace, and all its related instances. This operation can not be undone.",
+                "operationId": "deleteWorkspace",
+                "tags": ["owl-workspace", "beta", "workspaces", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        }
+    }
+}

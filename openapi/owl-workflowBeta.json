@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "version": "beta",
-        "title": "workflows",
+        "title": "owl-workflow",
         "license": { "name": "OwlGrid" }
     },
     "servers": [{ "url": "https://app.owlgrid.com/falseowl-workflow/beta/" }],
@@ -11,7 +11,7 @@
             "get": {
                 "summary": "Get a workflow.",
                 "operationId": "getWorkflow",
-                "tags": ["workflows", "beta", "workflows", "get"],
+                "tags": ["owl-workflow", "beta", "workflows", "get"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -25,7 +25,7 @@
             "get": {
                 "summary": "List the workflows of a workspace.",
                 "operationId": "listWorkflows",
-                "tags": ["workflows", "beta", "workflows", "list"],
+                "tags": ["owl-workflow", "beta", "workflows", "list"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -39,7 +39,7 @@
             "get": {
                 "summary": "List the workflows runs of a workspace.",
                 "operationId": "listWorkflowsRuns",
-                "tags": ["workflows", "beta", "workflows", "runs", "list"],
+                "tags": ["owl-workflow", "beta", "workflows", "runs", "list"],
                 "parameters": [],
                 "responses": {
                     "200": {

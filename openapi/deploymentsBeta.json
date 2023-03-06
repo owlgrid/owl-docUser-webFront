@@ -5,9 +5,7 @@
         "title": "deployments",
         "license": { "name": "OwlGrid" }
     },
-    "servers": [
-        { "url": "https://app.owlgrid.com/{workspaceId}/owl-deployment/beta/" }
-    ],
+    "servers": [{ "url": "https://app.owlgrid.com/falseowl-deployment/beta/" }],
     "paths": {
         "/deployments": {
             "get": {

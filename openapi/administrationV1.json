@@ -6,9 +6,7 @@
         "license": { "name": "OwlGrid" }
     },
     "servers": [
-        {
-            "url": "https://app.owlgrid.com/{workspaceId}/owl-administration/v1/"
-        }
+        { "url": "https://app.owlgrid.com/falseowl-administration/v1/" }
     ],
     "paths": {
         "/organizations": {

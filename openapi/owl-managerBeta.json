@@ -2,16 +2,28 @@
     "openapi": "3.0.0",
     "info": {
         "version": "beta",
-        "title": "workflows",
+        "title": "owl-manager",
         "license": { "name": "OwlGrid" }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-workflow/beta/" }],
+    "servers": [{ "url": "https://app.owlgrid.com/falseowl-manager/beta/" }],
     "paths": {
-        "/workflows/:workflowId": {
+        "/workspaces": {
             "get": {
-                "summary": "Get a workflow.",
-                "operationId": "getWorkflow",
-                "tags": ["workflows", "beta", "workflows", "get"],
+                "summary": "List all workspaces.",
+                "operationId": "listWorkspaces",
+                "tags": ["owl-manager", "beta", "workspaces", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new workspace. TODO: handle transactions",
+                "operationId": "createWorkspace",
+                "tags": ["owl-manager", "beta", "workspaces", "create"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -21,25 +33,11 @@
                 }
             }
         },
-        "/workflows": {
+        "/repositories": {
             "get": {
-                "summary": "List the workflows of a workspace.",
-                "operationId": "listWorkflows",
-                "tags": ["workflows", "beta", "workflows", "list"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            }
-        },
-        "/workflows/all/runs": {
-            "get": {
-                "summary": "List the workflows runs of a workspace.",
-                "operationId": "listWorkflowsRuns",
-                "tags": ["workflows", "beta", "workflows", "runs", "list"],
+                "summary": "List all repositories. Used by the manager to bind GitHub hooks to the right workspace. This operation is not available for end users.",
+                "operationId": "listRepositories",
+                "tags": ["owl-manager", "beta", "repositories", "list"],
                 "parameters": [],
                 "responses": {
                     "200": {

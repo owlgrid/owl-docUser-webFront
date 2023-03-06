@@ -2,16 +2,18 @@
     "openapi": "3.0.0",
     "info": {
         "version": "beta",
-        "title": "templates",
+        "title": "owl-organization",
         "license": { "name": "OwlGrid" }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-template/beta/" }],
+    "servers": [
+        { "url": "https://app.owlgrid.com/falseowl-organization/beta/" }
+    ],
     "paths": {
-        "/templates/:templateId": {
+        "/workspaces": {
             "get": {
-                "summary": "Get a template.",
-                "operationId": "getTemplate",
-                "tags": ["templates", "beta", "templates", "get"],
+                "summary": "List workspaces in an organization.",
+                "operationId": "listWorkspaces",
+                "tags": ["owl-organization", "beta", "workspaces", "list"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -19,13 +21,11 @@
                         "content": { "application/json": { "schema": {} } }
                     }
                 }
-            }
-        },
-        "/templates": {
-            "get": {
-                "summary": "List the templates of a workspace.",
-                "operationId": "listTemplates",
-                "tags": ["templates", "beta", "templates", "list"],
+            },
+            "post": {
+                "summary": "Create a new workspace.",
+                "operationId": "createWorkspace",
+                "tags": ["owl-organization", "beta", "workspaces", "create"],
                 "parameters": [],
                 "responses": {
                     "200": {

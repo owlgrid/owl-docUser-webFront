@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "version": "beta",
-        "title": "database",
+        "title": "owl-database",
         "license": { "name": "OwlGrid" }
     },
     "servers": [{ "url": "https://app.owlgrid.com/falseowl-database/beta/" }],
@@ -12,7 +12,7 @@
                 "summary": "Check if a collection exists in the database.",
                 "operationId": "checkCollectionExistence",
                 "tags": [
-                    "database",
+                    "owl-database",
                     "beta",
                     "data",
                     "collections",
@@ -32,7 +32,7 @@
                 "summary": "Cehck that a document exists in the database.",
                 "operationId": "checkDocumentExistence",
                 "tags": [
-                    "database",
+                    "owl-database",
                     "beta",
                     "data",
                     "documents",
@@ -51,7 +51,13 @@
             "post": {
                 "summary": "Create a new collection in the database.",
                 "operationId": "createCollection",
-                "tags": ["database", "beta", "data", "collections", "create"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "collections",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -65,7 +71,7 @@
             "get": {
                 "summary": "List documents in a collection of the database.",
                 "operationId": "listDocuments",
-                "tags": ["database", "beta", "data", "documents", "list"],
+                "tags": ["owl-database", "beta", "data", "documents", "list"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -77,7 +83,7 @@
             "post": {
                 "summary": "Create a new document in the database.",
                 "operationId": "createDocument",
-                "tags": ["database", "beta", "data", "documents", "create"],
+                "tags": ["owl-database", "beta", "data", "documents", "create"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -91,7 +97,13 @@
             "delete": {
                 "summary": "Delete a collection in the database and all its documents.",
                 "operationId": "deleteCollection",
-                "tags": ["database", "beta", "data", "collection", "delete"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "collection",
+                    "delete"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -105,7 +117,7 @@
             "post": {
                 "summary": "Update a document in the database.",
                 "operationId": "updateDocument",
-                "tags": ["database", "beta", "data", "documents", "update"],
+                "tags": ["owl-database", "beta", "data", "documents", "update"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -117,7 +129,7 @@
             "get": {
                 "summary": "Get a document of the database.",
                 "operationId": "getDocument",
-                "tags": ["database", "beta", "data", "documents", "get"],
+                "tags": ["owl-database", "beta", "data", "documents", "get"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -129,7 +141,7 @@
             "delete": {
                 "summary": "Delete a document in the database.",
                 "operationId": "deleteDocument",
-                "tags": ["database", "beta", "data", "documents", "delete"],
+                "tags": ["owl-database", "beta", "data", "documents", "delete"],
                 "parameters": [],
                 "responses": {
                     "200": {
@@ -143,7 +155,7 @@
             "get": {
                 "summary": "Get the database model representation.",
                 "operationId": "getModel",
-                "tags": ["database", "beta", "models", "get"],
+                "tags": ["owl-database", "beta", "models", "get"],
                 "parameters": [],
                 "responses": {
                     "200": {
