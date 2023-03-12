@@ -126,34 +126,34 @@ module.exports = {
                     //     //     },
                     //     // },
                     // },
-               /*     administration: {
-                        specPath: "openapi/administration.json",
-                        outputDir: "docs/references/API/Administration",
-                        sidebarOptions: {
-                            groupPathsBy: "tag",
-                        },
-                    },
-                    databaseBeta: {
-                        specPath: "openapi/databaseBeta.json",
-                        outputDir: "docs/references/API/Database",
-                        sidebarOptions: {
-                            groupPathsBy: "tag",
-                        },
-                    },
-                    workspacesBeta: {
-                        specPath: "openapi/workspacesBeta.json",
-                        outputDir: "docs/references/API/Workspaces",
-                        sidebarOptions: {
-                            groupPathsBy: "tag",
-                        },
-                    },
-                    workflowsBeta: {
-                        specPath: "openapi/workflowsBeta.json",
-                        outputDir: "docs/references/API/Workflows",
-                        sidebarOptions: {
-                            groupPathsBy: "tag",
-                        },
-                    } */
+                    /*     administration: {
+                             specPath: "openapi/administration.json",
+                             outputDir: "docs/references/API/Administration",
+                             sidebarOptions: {
+                                 groupPathsBy: "tag",
+                             },
+                         },
+                         databaseBeta: {
+                             specPath: "openapi/databaseBeta.json",
+                             outputDir: "docs/references/API/Database",
+                             sidebarOptions: {
+                                 groupPathsBy: "tag",
+                             },
+                         },
+                         workspacesBeta: {
+                             specPath: "openapi/workspacesBeta.json",
+                             outputDir: "docs/references/API/Workspaces",
+                             sidebarOptions: {
+                                 groupPathsBy: "tag",
+                             },
+                         },
+                         workflowsBeta: {
+                             specPath: "openapi/workflowsBeta.json",
+                             outputDir: "docs/references/API/Workflows",
+                             sidebarOptions: {
+                                 groupPathsBy: "tag",
+                             },
+                         } */
                 }
             },
         ]

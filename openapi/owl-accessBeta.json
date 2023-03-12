@@ -7,6 +7,25 @@
     },
     "servers": [{ "url": "https://app.owlgrid.com/falseowl-access/beta/" }],
     "paths": {
+        "/addClaimsToAccessToken": {
+            "post": {
+                "summary": "Generate an access token based on a past access token (same payload) but with additional claims. The new claims will be added to the list of current claims (ex: current per: ['owl.manager'], new claims ['owl.manager', 'owl.workspaces.abcdef']). This operation is called only from the portal with a valid access token.",
+                "operationId": "addClaimsToAccessToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "addClaimsToAccessToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
         "/users/:userId/checkExistence": {
             "get": {
                 "summary": "Check if a user exists.",
@@ -150,26 +169,6 @@
                 "summary": "Generate an access token. This operation is only callable from low services and requires a secret to be passed in input body.",
                 "operationId": "generateAccessToken",
                 "tags": ["owl-access", "beta", "generateAccessToken"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            }
-        },
-        "/generateAccessTokenWorkspace": {
-            "post": {
-                "summary": "Generate an access token for a workspace (will be replaced with a proper authentication mechanism in the future). This operation is called only from the portal with an access token for the manager.",
-                "operationId": "generateAccessTokenWorkspace",
-                "tags": [
-                    "owl-access",
-                    "beta",
-                    "accounts",
-                    "users",
-                    "generateAccessTokenWorkspace"
-                ],
                 "parameters": [],
                 "responses": {
                     "200": {
