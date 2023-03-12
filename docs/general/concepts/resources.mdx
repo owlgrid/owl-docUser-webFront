@@ -1,0 +1,60 @@
+---
+sidebar_position: 5
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Resources
+
+Resources can be require to be well identified. This page contains the naming convention used to identify resources.
+
+## Resources typology
+
+There are two level of abstraction in OwlGrid: **technical** and **product**. The convention is to manipulate concepts at the **product** level (which contains the functional logic).
+
+### Technical resources
+
+Technical resources, also named `services` are technical components on which the resources are based. They are used on the technical level. There are not meant to be used in resources description.
+
+A service is composed of a core that runs the logic and interfaces; Interfaces are used to communicate with other services (databases, etc.) and the outside world.
+
+
+### Product resources
+
+Base product resources are (non-exhaustive):
+- Database: store and manipulate data.
+- Hosting: host web applications and websites.
+- Monitoring: monitor usage of your applications.
+- Workflow: execute actions on resources.
+- Administration: manage administrators, give right, monitor usage, billing, etc.
+- OwlGrid documentation (this): know how to manage platform resources.
+- Portal: manage all resources and usage through an user interface.
+- Templates: use architecture templates and publish yours.
+- Notifications: get informed about OwlGrid status, alerts and updates.
+- Etc.
+
+### Resources identifiers
+
+Resources can be inherited from parent resources. They can be either a terminal resource instance, or a group of resources instances. Composition of the id: `[baseResourceName].[resources].[resource-id]`.
+
+The base resource name can be either `owl`, or a workspace id (which is a diminution of: `owl.administration.organizations.[organizationId].workspaces.[workspaceId]`).
+
+N.B.:
+- Resources names are always in plural, even when only one instance is represented.
+
+Examples:
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces`;
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.6f1765bf-9599-4aeb-8f27-c42589899a0b`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.9aaf7519-6f1c-4235-9419-fc34869019f5`;
+
+### Operations on resources
+
+Operations are an action verb on a resource. Example: `get`, `set`, `list`, `create`, `delete`, etc. There are specified in the documentation of each resource.
+
+Examples:
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.create`;
+- `owl.administration.organizations.cf1a9799-6fb9-4a76-aff7-612eea134909.workspaces.6f1765bf-9599-4aeb-8f27-c42589899a0b.getDetails`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.list`;
+- `6f1765bf-9599-4aeb-8f27-c42589899a0b.administration.users.9aaf7519-6f1c-4235-9419-fc34869019f5.delete`.

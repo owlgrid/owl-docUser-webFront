@@ -1,0 +1,95 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Workspaces
+
+Workspaces are the highest level of OwlGrid platform. A workspace is a collection of resources, users. A workspace is a logical container for all the resources of the platform, like a "cluster", it is isolated from other workspaces (even if other workspaces are attached to the same organization).
+
+The particularity of workspaces is that every resource inside of it communicate with each other. The identity system is unique and shared between all instances, and there is no need to configure network.
+
+A workspace is managed in a special resource that is called the [controller](/docs/resources/controller/introduction).
+
+## Relation with organizations
+
+A workspace is related to an organization. The organization represents an entreprise, or association and is used to manage the billing of the workspace. A workspace can be attached to only one organization. More information about organizations can be found in the [organizations documentation](/docs/general/concepts/organizations).
+
+## When to create a workspace?
+
+As workspaces are the highest level of the platform, the resources it contains are isolated (they can not reference resources from other workspaces). We recommand to create a workspace for a product, an organization, a specific project, etc. but NOT to isolate resources INSIDE a product, organzation or project. Indeed, the platform is designed to be used by multiple teams, and to be able to share resources between them. If you need to isolate resources, you should use the [perimeters](/docs/general/concepts/perimeters) segmentation.
+
+Example: The organization ACME Inc. has a product called "AliceApp" and a product called "BobApp". As the two products have separate users, teams, they should be in separate workspaces. Moreover, the IT system of ACME Inc. is also managed in OwlGrid, so it has also a dedicated workspace.
+
+## Workspaces properties
+
+A workspace has the following properties.
+
+### Identifer
+Id: the unique identifier of the workspace (auto-generated).
+
+### Base URL
+
+Base URL: the URL of the workspace (auto-generated). This URL is composed of the workspace id and OwlGrid base URL. For example, if the workspace id is "xxxxxxx" and the OwlGrid base URL is "owlgrid.com", the base URL of the workspace will be "xxxxxxx.owlgrid.com".
+
+This URL can be override with a custom domain name. More information about custom domain names can be found in the [custom domain names documentation](/docs/general/concepts/domain-names).
+
+### Metadata
+
+Metadata: custom metadata of the workspace (name, description, etc.). Learn more about [metadata](/docs/general/concepts/metadata).
+
+### Organization
+
+Organization: the organization the workspace is attached to. This can be changed after the creation of the workspace.
+
+### Server configuration
+
+Server configuration: the server provider, location, etc. Learn more about [server](/docs/general/hosting/introduction).
+
+## Operations
+
+### Get workspace information
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Create a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Update a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>

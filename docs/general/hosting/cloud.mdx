@@ -1,0 +1,58 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# OwlGrid Cloud
+
+OwlGrid Cloud is the easiest way of running OwlGrid without having to concern about ressources, performances and maintenance. It is also the most cost-effective way.
+
+## Properties
+
+### Cloud provider
+
+OwlGrid Cloud can be runned on several cloud provider.
+
+:::info
+
+For now, only AWS is supported but we plan to add more in the future.
+
+:::
+
+### Region
+
+OwlGrid Cloud can be runned on several regions, depending on the cloud provider. For now, only AWS regions are supported but we plan to add more in the future.
+
+:::info
+
+Cross-regions instances are not available yet.
+
+:::
+
+### Get started
+
+To start using OwlGrid Cloud, you can sign up [here](https://owlgrid.app/signup) and start using OwlGrid right away.
+
+You can also contact us at [hello@owlgrid.com](mailto:hello@owlgrid.com).
+
+## Architecture
+
+OwlGrid Cloud Control Tower is an Owlgrid space dedicated to Cloud Spaces management. This space contains the following modules:
+- Organizations: stores and execute organizations processes. For example when a new customer creates an account on OwlGrid Cloud, it adds the organization (which is required to create and manage cloud spaces).
+- Administrators: stores the list of administrators and execute processes (account creation, etc.). Administrators are related to one or multiple spaces.
+- Spaces: stores spaces information (hosting, address, administrators, etc.) and transfer usage monitoring data to organizations and billing.
+- Billing: stores billing information and execute billing processes.
+
+### Functional architecture
+
+![OwlGrid Cloud Functional Architecture](/img/general/hosting/cloud/functional.jpg)
+
+### Applicative architecture
+
+![OwlGrid Cloud Applicative Architecture](/img/general/hosting/cloud/applicative.jpg)
+
+### Infrastructure architecture
+
+![OwlGrid Cloud Infrastructure Architecture](/img/general/hosting/cloud/infrastructure.jpg)
