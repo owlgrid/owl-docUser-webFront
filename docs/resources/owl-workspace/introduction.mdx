@@ -1,0 +1,91 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Introduction
+
+To get more information about workspaces, please refer to the general concepts [here](/docs/general/concepts/workspaces).
+
+## Operations
+
+To manage workspaces, please refer to the [workspace technical documentation](/docs/resources/owl-workspace/introduction).
+
+### Get workspace information
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Create a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Update a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+
+The **controller** is a special resource that manages a [workspace](/docs/general/concepts/workspaces). It is responsible for the following:
+- Manage the workspace identity (id, network, etc.);
+- List available resources of the workspace;
+- Attach or detach resources;
+- Manage the workspace configuration:
+    - Metadata: more information [here](/docs/general/concepts/metadata);
+
+TODO Data model:
+- workspace
+    - id
+    - address
+    - organization
+    - cloud
+    - administrator
+        - id
+        - password
+    - creationDate
+    - updateDate
+- Metadatas
+    - id
+    - name
+    - type
+    - values accepted
+    - default value
+    - description
+    - creationDate
+    - updateDate
+- Resources
+    - id
+    - network address
+    - status

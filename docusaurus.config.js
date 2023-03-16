@@ -16,11 +16,6 @@ const config = {
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
 
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'owlgrid', // Usually your GitHub org/user name.
-    projectName: 'owl-docUser-front', // Usually your repo name.
-
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
 
@@ -74,8 +69,8 @@ const config = {
                         label: 'Documentation',
                     },
                     {
-                        href: 'https://github.com/owlgrid/owl-docUser-front',
-                        label: 'GitHub',
+                        label: 'Portal',
+                        href: 'https://portal.owlgrid.com',
                         position: 'right',
                     },
                 ],
