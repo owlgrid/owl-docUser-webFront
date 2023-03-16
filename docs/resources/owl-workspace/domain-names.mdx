@@ -1,0 +1,76 @@
+---
+sidebar_position: 9
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Domain names
+
+By default, a [workspace](/docs/general/concepts/workspaces) url is `https://owlgrid.com/workspaces/{workspaceId}/`. 
+
+It is also possible to use one or several custom domain name for a workspace. This allow to exposes resources under a domain name consistant with your brand.
+
+## Operations
+
+### Create a domain name
+
+OwlGrid does not provide domain names. You need to create a domain name first and point it to OwlGrid. Domain name providers are numerous and you can register yours with any of them (ex: Google Domains, OVH, Gandi, etc.).
+
+### Attach a domain name to a workspace
+
+Once you have created a domain name, you need to point it to your workspace. This is done in two steps, first, create a new domain attachment in your workspace, and second, create a DNS record that points to OwlGrid.
+
+#### Create a domain attachment
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+#### Create a DNS record
+
+To point a domain name to OwlGrid, you need to create a DNS record that points to OwlGrid. The type of the record depends on the domain name provider you are using. For example, with Google Domains, you need to create a CNAME record that points to `owlgrid.com`.
+
+### List domain names attached to a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Attach a domain name to a resource instance
+
+Each resource type offers custom domain name support. For example, the hosting resource offers the possibility to attach different domain names to different instances. Please, refer to the documentation of the resource type you are using for more information.
+
+### List instances using a domain name
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Remove a domain name from a workspace
+
+Before removing a domain name from a workspace, OwlGrid will show you the list of instances using this domain name. When the domain name is deleted, the resources that used it will switch on the default OwlGrid URL.
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
