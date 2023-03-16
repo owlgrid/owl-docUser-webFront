@@ -9,7 +9,7 @@ TODO
 ## Under the hood
 
 Process:
-- Réception d'une requête de lecture HTTP au niveau de l'API Gateway (api.owlgrid.com/database/v1 + body GraphQL)
+- Réception d'une requête de lecture HTTP au niveau de l'API Gateway (api.owlgrid.com/owl-database/v1 + body GraphQL)
 - Transmission de la requête au microservice de lecture d'API
 - Chargement du modèle de données associé depuis la base de données de modèles (comment choisir le modèle / version ?)
 - Contrôle des droits d'accès (via interrogation du microservice associé)
