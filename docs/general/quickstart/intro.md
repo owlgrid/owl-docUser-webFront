@@ -4,9 +4,7 @@ sidebar_position: 1
 
 # Setup OwlGrid in 5 minutes
 
-Todo quickstart.
-
-There are several ways to administrate the OwlGrid platform.
+The first step to start using OwlGrid is to get a user account. To get this account, please contact your [account manager](/docs/general/contacts/account-manager).
 
 ## The administration portal
 
