@@ -11,13 +11,27 @@ To get more information about workspaces, please refer to the general concepts [
 
 ## Operations
 
-To manage workspaces, please refer to the [workspace technical documentation](/docs/resources/owl-workspace/introduction).
-
 ### Create a workspace
 
 To create a workspace, you need to have an account on OwlGrid. If you don't have one, please refer to the [quickstart tutorial](/docs/general/quickstart/intro).
 
 <Tabs groupId="client">
+  <TabItem value="portal" label="Portal">
+
+  Start by logging in to the [OwlGrid portal](https://portal.owlgrid.com/). Then, on the [workspaces section](https://portal.owlgrid.com/manager/workspaces) of the manager, click on the **Create a workspace** button.
+
+  To create a workspace, you need to provide the following information:
+  > Name: the name of the workspace. It must be unique in the organization;
+  
+  > Description: a short description of the workspace;
+
+  OwlGrid will generate automatically an identifier and redirect you to the workspace page.
+
+  After the workspace creation, you will need to connect a repository. The repository is used to store the code and the configuration of the workspace. OwlGrid supports only Github repositories for now.
+
+  On the first connection, you will need to authorize OwlGrid to access your Github account. Then, you will be able to select the repository you want to use. For more informations, please refer to the [repository section](#connect-to-repository).
+
+  </TabItem>
   <TabItem value="rest" label="REST API">
   TODO http call
   </TabItem>
@@ -25,6 +39,18 @@ To create a workspace, you need to have an account on OwlGrid. If you don't have
   TODO cli command
   </TabItem>
 </Tabs>
+
+### Connect to repository
+
+Every workspace needs to be connected to a repository that stores the code and the configuration of the workspace and its resources. 
+
+:::info
+
+OwlGrid supports only Github repositories for now.
+
+:::
+
+To connect a workspace to a repository, this workspace need to have at least one branch name **main**. This branch will be used to create the main environment of your workspace. For more information about environments, please refer to the [environments section](/docs/resources/owl-workspace/environments).
 
 ### Get workspace information
 
