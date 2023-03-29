@@ -78,20 +78,6 @@
                 }
             }
         },
-        "/rights": {
-            "post": {
-                "summary": "Create a new right.",
-                "operationId": "createRight",
-                "tags": ["owl-access", "beta", "rights", "create"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            }
-        },
         "/users": {
             "get": {
                 "summary": "List user accounts in OwlGrid manager.",
@@ -181,6 +167,98 @@
                 "summary": "Generate an access token. This operation is only callable from low services and requires a secret to be passed in input body.",
                 "operationId": "generateAccessToken",
                 "tags": ["owl-access", "beta", "generateAccessToken"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId/assignments": {
+            "get": {
+                "summary": "List roles assignments to accounts. TODO create a more secure version of this operation for workspaces",
+                "operationId": "listRolesAssignments",
+                "tags": ["owl-access", "beta", "roles", "assignments", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Assign an account to a role.",
+                "operationId": "assignRole",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "assignments",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId/assignments/:assignmentId": {
+            "delete": {
+                "summary": "Delete a role assignment.",
+                "operationId": "deleteRoleAssignment",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "assignments",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/roles": {
+            "get": {
+                "summary": "List roles. TODO create a more secure version of this operation for workspaces",
+                "operationId": "listRoles",
+                "tags": ["owl-access", "beta", "roles", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new role.",
+                "operationId": "createRole",
+                "tags": ["owl-access", "beta", "roles", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId": {
+            "delete": {
+                "summary": "Delete a role.",
+                "operationId": "deleteRole",
+                "tags": ["owl-access", "beta", "roles", "delete"],
                 "parameters": [],
                 "responses": {
                     "200": {

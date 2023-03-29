@@ -136,6 +136,91 @@
                     }
                 }
             }
+        },
+        "/users": {
+            "get": {
+                "summary": "List user accounts in a workspace.",
+                "operationId": "listUserAccounts",
+                "tags": ["owl-workspace", "beta", "accounts", "users", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/variables": {
+            "get": {
+                "summary": "List all variables.",
+                "operationId": "listVariables",
+                "tags": ["owl-workspace", "beta", "variables", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new variable in a workspace. This operation does not update workflows parameters, please use variables.setVariablesBatch instead.",
+                "operationId": "createVariable",
+                "tags": ["owl-workspace", "beta", "variables", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/variables/:variableId": {
+            "get": {
+                "summary": "Get a workspace variable. Please note that the variable will be deleted in every environment! TODO add the list of where the variable is used.",
+                "operationId": "getVariable",
+                "tags": ["owl-workspace", "beta", "variables", "get"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a variable. This operation can not be undone, be careful to not delete variables that are used. This operation does not update workflows parameters, please use variables.setVariablesBatch instead.",
+                "operationId": "deleteVariable",
+                "tags": ["owl-workspace", "beta", "variables", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/variables/setVariablesBatch": {
+            "post": {
+                "summary": "Set multiple variables values. This operation triggers the rebuild of all resources using theses variables.",
+                "operationId": "setVariableValuesBatch",
+                "tags": [
+                    "owl-workspace",
+                    "beta",
+                    "variables",
+                    "setVariablesBatch"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
         }
     }
 }

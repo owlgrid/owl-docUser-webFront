@@ -9,7 +9,7 @@
     "paths": {
         "/perimeters": {
             "get": {
-                "summary": "Get a list of perimeters objects.",
+                "summary": "List perimeters of a workspace.",
                 "operationId": "listPerimeters",
                 "tags": ["owl-perimeter", "beta", "perimeters", "list"],
                 "parameters": [],
@@ -36,7 +36,7 @@
         "/perimeters/:perimeterId/resources": {
             "post": {
                 "summary": "Attach a workspace resource to a perimeter.",
-                "operationId": "attachReourceToPerimeter",
+                "operationId": "attachResourceToPerimeter",
                 "tags": [
                     "owl-perimeter",
                     "beta",
