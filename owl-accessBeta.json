@@ -176,6 +176,26 @@
                 }
             }
         },
+        "/getGithubAccountId": {
+            "post": {
+                "summary": "Get a Github Account Id from a Github OAuth code. This request requests first the user account id and update it in the database.",
+                "operationId": "getGithubAccountId",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "getGithubAccountId"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
         "/roles/:roleId/assignments": {
             "get": {
                 "summary": "List roles assignments to accounts. TODO create a more secure version of this operation for workspaces",

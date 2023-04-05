@@ -7,6 +7,32 @@
     },
     "servers": [{ "url": "https://app.owlgrid.com/falseowl-manager/beta/" }],
     "paths": {
+        "/appConnections": {
+            "get": {
+                "summary": "List all appConnections.",
+                "operationId": "listAppConnections",
+                "tags": ["owl-manager", "beta", "appConnections", "list"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new app connection with GitHub.",
+                "operationId": "createAppConnection",
+                "tags": ["owl-manager", "beta", "appConnections", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
         "/workspaces": {
             "get": {
                 "summary": "List all workspaces.",
@@ -24,6 +50,20 @@
                 "summary": "Create a new workspace. TODO: handle transactions",
                 "operationId": "createWorkspace",
                 "tags": ["owl-manager", "beta", "workspaces", "create"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
+        "/appConnections/:appConnectionId": {
+            "post": {
+                "summary": "Delete a new app connection with GitHub.",
+                "operationId": "deleteAppConnection",
+                "tags": ["owl-manager", "beta", "appConnections", "delete"],
                 "parameters": [],
                 "responses": {
                     "200": {

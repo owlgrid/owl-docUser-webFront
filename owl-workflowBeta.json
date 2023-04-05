@@ -7,6 +7,44 @@
     },
     "servers": [{ "url": "https://app.owlgrid.com/falseowl-workflow/beta/" }],
     "paths": {
+        "/workflows/:workflowId": {
+            "put": {
+                "summary": "Update a workflow.",
+                "operationId": "updateWorkflow",
+                "tags": ["owl-workflow", "beta", "workflows", "update"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Activate a workflow.",
+                "operationId": "activateWorkflow",
+                "tags": ["owl-workflow", "beta", "workflows", "activate"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a workflow.",
+                "operationId": "deleteWorkflow",
+                "tags": ["owl-workflow", "beta", "workflows", "delete"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": { "application/json": { "schema": {} } }
+                    }
+                }
+            }
+        },
         "/workflows": {
             "get": {
                 "summary": "List the workflows of a workspace.",
@@ -24,44 +62,6 @@
                 "summary": "Create a workflow.",
                 "operationId": "createWorkflow",
                 "tags": ["owl-workflow", "beta", "workflows", "create"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            }
-        },
-        "/workflows/:workflowId": {
-            "put": {
-                "summary": "Update a workflow.",
-                "operationId": "updateWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "update"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            },
-            "get": {
-                "summary": "Get a workflow.",
-                "operationId": "getWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "get"],
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Delete a workflow.",
-                "operationId": "deleteWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "delete"],
                 "parameters": [],
                 "responses": {
                     "200": {

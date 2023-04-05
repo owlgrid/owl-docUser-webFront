@@ -1,0 +1,211 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Repositories
+
+To get more information about environments, please refer to the [general concepts section](/docs/general/concepts/environments).
+
+## Operations
+
+
+## Operations
+
+### Create an empty environment
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Create an environment based on an existing environment
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Rename an environment
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete an environment
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Migrate resources from one environment to another
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Create a variable
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Update a variable
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete a variable
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+
+### Create a workspace
+
+To create a workspace, you need to have an account on OwlGrid. If you don't have one, please refer to the [quickstart tutorial](/docs/general/quickstart/intro).
+
+<Tabs groupId="client">
+  <TabItem value="portal" label="Portal">
+
+  Start by logging in to the [OwlGrid portal](https://portal.owlgrid.com/). Then, on the [workspaces section](https://portal.owlgrid.com/manager/workspaces) of the manager, click on the **Create a workspace** button.
+
+  To create a workspace, you need to provide the following information:
+  > Name: the name of the workspace. It must be unique in the organization;
+  
+  > Description: a short description of the workspace;
+
+  OwlGrid will generate automatically an identifier and redirect you to the workspace page.
+
+  After the workspace creation, you will need to connect a repository. The repository is used to store the code and the configuration of the workspace. OwlGrid supports only Github repositories for now.
+
+  On the first connection, you will need to authorize OwlGrid to access your Github account. Then, you will be able to select the repository you want to use. For more informations, please refer to the [repository section](#connect-to-repository).
+
+  </TabItem>
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Connect to repository
+
+Every workspace needs to be connected to a repository that stores the code and the configuration of the workspace and its resources. 
+
+:::info
+
+OwlGrid supports only Github repositories for now.
+
+:::
+
+To connect a workspace to a repository, this workspace need to have at least one branch name **main**. This branch will be used to create the main environment of your workspace. For more information about environments, please refer to the [environments section](/docs/resources/owl-workspace/environments).
+
+### Get workspace information
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Update a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+### Delete a workspace
+
+<Tabs groupId="client">
+  <TabItem value="rest" label="REST API">
+  TODO http call
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+  TODO cli command
+  </TabItem>
+</Tabs>
+
+
+The **controller** is a special resource that manages a [workspace](/docs/general/concepts/workspaces). It is responsible for the following:
+- Manage the workspace identity (id, network, etc.);
+- List available resources of the workspace;
+- Attach or detach resources;
+- Manage the workspace configuration:
+    - Metadata: more information [here](/docs/general/concepts/metadata);
+
+TODO Data model:
+- workspace
+    - id
+    - address
+    - organization
+    - cloud
+    - administrator
+        - id
+        - password
+    - creationDate
+    - updateDate
+- Metadatas
+    - id
+    - name
+    - type
+    - values accepted
+    - default value
+    - description
+    - creationDate
+    - updateDate
+- Resources
+    - id
+    - network address
+    - status
