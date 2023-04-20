@@ -3,32 +3,56 @@
     "info": {
         "version": "beta",
         "title": "owl-manager",
-        "license": { "name": "OwlGrid" }
+        "license": {
+            "name": "OwlGrid"
+        }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-manager/beta/" }],
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-manager/beta/"
+        }
+    ],
     "paths": {
         "/appConnections": {
             "get": {
                 "summary": "List all appConnections.",
                 "operationId": "listAppConnections",
-                "tags": ["owl-manager", "beta", "appConnections", "list"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "appConnections",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "summary": "Create a new app connection with GitHub.",
                 "operationId": "createAppConnection",
-                "tags": ["owl-manager", "beta", "appConnections", "create"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "appConnections",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -37,24 +61,42 @@
             "get": {
                 "summary": "List all workspaces.",
                 "operationId": "listWorkspaces",
-                "tags": ["owl-manager", "beta", "workspaces", "list"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "workspaces",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "summary": "Create a new workspace. TODO: handle transactions",
                 "operationId": "createWorkspace",
-                "tags": ["owl-manager", "beta", "workspaces", "create"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "workspaces",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -63,12 +105,21 @@
             "post": {
                 "summary": "Delete a new app connection with GitHub.",
                 "operationId": "deleteAppConnection",
-                "tags": ["owl-manager", "beta", "appConnections", "delete"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "appConnections",
+                    "delete"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -77,12 +128,21 @@
             "get": {
                 "summary": "List all repositories. Used by the manager to bind GitHub hooks to the right workspace. This operation is not available for end users.",
                 "operationId": "listRepositories",
-                "tags": ["owl-manager", "beta", "repositories", "list"],
+                "tags": [
+                    "owl-manager",
+                    "beta",
+                    "repositories",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }

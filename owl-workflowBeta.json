@@ -3,44 +3,77 @@
     "info": {
         "version": "beta",
         "title": "owl-workflow",
-        "license": { "name": "OwlGrid" }
+        "license": {
+            "name": "OwlGrid"
+        }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-workflow/beta/" }],
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-workflow/beta/"
+        }
+    ],
     "paths": {
         "/workflows/:workflowId": {
             "put": {
                 "summary": "Update a workflow.",
                 "operationId": "updateWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "update"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "update"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "summary": "Activate a workflow.",
                 "operationId": "activateWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "activate"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "activate"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "summary": "Delete a workflow.",
                 "operationId": "deleteWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "delete"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "delete"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -49,24 +82,42 @@
             "get": {
                 "summary": "List the workflows of a workspace.",
                 "operationId": "listWorkflows",
-                "tags": ["owl-workflow", "beta", "workflows", "list"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "summary": "Create a workflow.",
                 "operationId": "createWorkflow",
-                "tags": ["owl-workflow", "beta", "workflows", "create"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -75,12 +126,22 @@
             "get": {
                 "summary": "List the workflows runs of a workspace.",
                 "operationId": "listWorkflowsRuns",
-                "tags": ["owl-workflow", "beta", "workflows", "runs", "list"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "runs",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -89,12 +150,21 @@
             "put": {
                 "summary": "Update a workflow version.",
                 "operationId": "updateVersion",
-                "tags": ["owl-workflow", "beta", "workflows", "updateVersion"],
+                "tags": [
+                    "owl-workflow",
+                    "beta",
+                    "workflows",
+                    "updateVersion"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }

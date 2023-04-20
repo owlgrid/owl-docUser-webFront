@@ -3,32 +3,56 @@
     "info": {
         "version": "beta",
         "title": "owl-perimeter",
-        "license": { "name": "OwlGrid" }
+        "license": {
+            "name": "OwlGrid"
+        }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-perimeter/beta/" }],
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-perimeter/beta/"
+        }
+    ],
     "paths": {
         "/perimeters": {
             "get": {
                 "summary": "List perimeters of a workspace.",
                 "operationId": "listPerimeters",
-                "tags": ["owl-perimeter", "beta", "perimeters", "list"],
+                "tags": [
+                    "owl-perimeter",
+                    "beta",
+                    "perimeters",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "summary": "Create a new perimeter in the database.",
                 "operationId": "createPerimeter",
-                "tags": ["owl-perimeter", "beta", "perimeters", "create"],
+                "tags": [
+                    "owl-perimeter",
+                    "beta",
+                    "perimeters",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -48,7 +72,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -57,24 +85,42 @@
             "get": {
                 "summary": "Get a perimeter.",
                 "operationId": "getPerimeter",
-                "tags": ["owl-perimeter", "beta", "perimeters", "get"],
+                "tags": [
+                    "owl-perimeter",
+                    "beta",
+                    "perimeters",
+                    "get"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "summary": "Delete a perimeter in the database and all its documents.",
                 "operationId": "deletePerimeter",
-                "tags": ["owl-perimeter", "beta", "perimeter", "delete"],
+                "tags": [
+                    "owl-perimeter",
+                    "beta",
+                    "perimeter",
+                    "delete"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -94,7 +140,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }

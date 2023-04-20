@@ -3,9 +3,15 @@
     "info": {
         "version": "beta",
         "title": "owl-database",
-        "license": { "name": "OwlGrid" }
+        "license": {
+            "name": "OwlGrid"
+        }
     },
-    "servers": [{ "url": "https://app.owlgrid.com/falseowl-database/beta/" }],
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-database/beta/"
+        }
+    ],
     "paths": {
         "/data/collections/:collectionId/checkExistence": {
             "get": {
@@ -22,7 +28,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -42,7 +52,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -62,7 +76,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -71,24 +89,44 @@
             "get": {
                 "summary": "List documents in a collection of the database.",
                 "operationId": "listDocuments",
-                "tags": ["owl-database", "beta", "data", "documents", "list"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "documents",
+                    "list"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "summary": "Create a new document in the database.",
                 "operationId": "createDocument",
-                "tags": ["owl-database", "beta", "data", "documents", "create"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "documents",
+                    "create"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -108,7 +146,11 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -117,36 +159,66 @@
             "post": {
                 "summary": "Update a document in the database.",
                 "operationId": "updateDocument",
-                "tags": ["owl-database", "beta", "data", "documents", "update"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "documents",
+                    "update"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "get": {
                 "summary": "Get a document of the database.",
                 "operationId": "getDocument",
-                "tags": ["owl-database", "beta", "data", "documents", "get"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "documents",
+                    "get"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "summary": "Delete a document in the database.",
                 "operationId": "deleteDocument",
-                "tags": ["owl-database", "beta", "data", "documents", "delete"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "data",
+                    "documents",
+                    "delete"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
@@ -155,12 +227,21 @@
             "get": {
                 "summary": "Get the database model representation.",
                 "operationId": "getModel",
-                "tags": ["owl-database", "beta", "models", "get"],
+                "tags": [
+                    "owl-database",
+                    "beta",
+                    "models",
+                    "get"
+                ],
                 "parameters": [],
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "content": { "application/json": { "schema": {} } }
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     }
                 }
             }
