@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "owl-organization",
+        "license": {
+            "name": "OwlGrid"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-organization/beta/"
+        }
+    ],
+    "paths": {
+        "/workspaces": {
+            "get": {
+                "summary": "List workspaces in an organization.",
+                "operationId": "listWorkspaces",
+                "tags": [
+                    "owl-organization",
+                    "beta",
+                    "workspaces",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new workspace.",
+                "operationId": "createWorkspace",
+                "tags": [
+                    "owl-organization",
+                    "beta",
+                    "workspaces",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

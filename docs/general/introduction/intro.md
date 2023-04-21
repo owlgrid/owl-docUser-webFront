@@ -17,11 +17,10 @@ Whether you need to create a backend for an application, to host a website or to
 ### A "workflow-oriented" platform
 
 We though about: "what does a backend at its core?" and we came to conclusion that it *executes actions on resources*. So we developed a simple philosophy to focus on the core of the backend:
-- [Workflows](/docs/resources/workflows/introduction) are resilient programs triggered by an event (API call, date, database write, etc.), that runs a set of actions on resources and that returns a result (log, HTTP response, etc.).
+- [Workflows](/docs/resources/owl-workflow/introduction) are resilient programs triggered by an event (API call, date, database write, etc.), that runs a set of actions on resources and that returns a result (log, HTTP response, etc.).
 - [Resources](/docs/general/concepts/resources) are entities that performs actions, store data, call external services. Here is a list of some resources OwlGrid provides by default:
-  - [Database](/docs/resources/database/introduction): store an manipulate data;
-  - [Functions](/docs/resources/functions/introduction): execute serverless functions;
-  - [Hosting](/docs/resources/hosting/introduction): host websites accessible through the web;
+  - [Database](/docs/resources/owl-database/introduction): store an manipulate data;
+  - [Hosting](/docs/resources/owl-hosting/introduction): host websites accessible through the web;
   - Etc.
 
 ## Use cases

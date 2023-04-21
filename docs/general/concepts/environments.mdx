@@ -7,110 +7,38 @@ import TabItem from '@theme/TabItem';
 
 # Environments
 
-TODO -> est-ce qu'on ne pourrait pas simplifier en disant qu'un environnement c'est un périmètre ? (gestion des utilisateurs plus simple).
+When developing systems, it is necessary to create separate resources perimeters to test new features or corrections, while maintaining clients resources operational. Like branches on Github, environments allows to create duplicatas of a workspace.
 
 ## Overview
 
 Resources can be managed in several environments aligned on your team deployment processes. By default, the only environment available is the `main` environment. You can create additional environments to manage your resources in different stages of the deployment process. For example, you can create an `staging` environment to test your resources before deploying them to the `main` environment.
 
-## Variables
+### Our philosophy
 
-You can define variables for each environment. For example you can define a different `baseURL-name` for each environment. Variables defined in an environment are available in all resources in that environment.
+Traditional cloud platforms have no opinion on how to manage environments and offers basic tools on which techs can design and implement environment management. We realized at OwlGrid that most of SaaS projects use environments with a branch system to deliver features continuously.
+
+### Main and other environments
+
+When creating a workspace, a default environments is created, named `main`. We recommand to use the main environment as the production environment.
+
+It is possible to create new environments by creating a new branch in the configuration / code repositorie(s) and declaring a new environment [in the portal or through the APIs](/docs/resources/owl-workspace/repositories).
+
+### Repositories
+
+Workspace configuration and code is stored in Github [repositories](/docs/resources/owl-workspace/repositories). A workspace environment is associated to a branch in these configurations / code repositories. This allow to *tirer parti* of Git branches tools  (merge, pull request, etc.) and have rigourous branches routes.
+
+To create a new environment and link it to a repository, please check [this page](/docs/resources/owl-workspace/repositories).
+
+OwlGrid is installed as a Github app in code and infrastructure repositories, which allow to detect automatically new commits, branches and to deploy automatically changes.
+
+### Variables
+
+Some values may differ between environments. For example, if the "main" environment contains workflows that interact with an external payment service (url: `https://prod.payment.com/`), we would like to interact with a development service to avoid updating production data (ex : `https://mock.payment.com/`).
+
+The **workspace variables** allows to define variables which value differs between environments, without needing to change source code or configuration. Variables defined in an environment are available in all resources in that environment.
+
+For more informations, please check [this page](/docs/resources/owl-workspace/environments)
 
 ## Resources
 
 Resources are only available in a specific environment.
-
-## Users and rights
-
-
-
-## Operations
-
-### Create an empty environment
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Create an environment based on an existing environment
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Rename an environment
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Delete an environment
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Migrate resources from one environment to another
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Create a variable
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Update a variable
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
-
-### Delete a variable
-
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>

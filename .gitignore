@@ -10,10 +10,6 @@
 
 # Misc
 .DS_Store
-
-# Build
-lib
-build
 .env.local
 .env.development.local
 .env.test.local
