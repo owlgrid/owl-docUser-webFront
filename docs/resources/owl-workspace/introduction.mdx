@@ -18,31 +18,33 @@ To create a workspace, you need to have an account on OwlGrid. If you don't have
 <Tabs groupId="client">
   <TabItem value="portal" label="Portal">
 
-  Start by logging in to the [OwlGrid portal](https://portal.owlgrid.com/). Then, on the [workspaces section](https://portal.owlgrid.com/manager/workspaces) of the manager, click on the **Create a workspace** button.
-
-  To create a workspace, you need to provide the following information:
-  > Name: the name of the workspace. It must be unique in the organization;
+Start by logging in to the [OwlGrid portal](https://portal.owlgrid.com/). 
   
-  > Description: a short description of the workspace;
+Then, on the [workspaces section](https://portal.owlgrid.com/manager/workspaces) of the manager, click on the **Create a workspace** button.
 
-  OwlGrid will generate automatically an identifier and redirect you to the workspace page.
+To create a workspace, you need to provide the following information:
+- **Name:** the name of the workspace. It must be unique in the organization;
+  
+- **Description:** a short description of the workspace (optional);
 
-  After the workspace creation, you will need to connect a repository. The repository is used to store the code and the configuration of the workspace. OwlGrid supports only Github repositories for now.
+OwlGrid will generate automatically an identifier and redirect you to the workspace page.
 
-  On the first connection, you will need to authorize OwlGrid to access your Github account. Then, you will be able to select the repository you want to use. For more informations, please refer to the [repository section](#connect-to-repository).
+After the workspace creation, you will need to connect a repository. The repository is used to store the code and the configuration of the workspace. OwlGrid supports only Github repositories for now.
+
+On the first connection, you will need to authorize OwlGrid to access your Github account. Then, you will be able to select the repository you want to use. For more informations, please refer to the [repository section](#connect-to-repository).
 
   </TabItem>
-  <TabItem value="rest" label="REST API">
-  TODO http call
+  <TabItem value="http" label="HTTP API">
+    This operation is available through the HTTP API but not documented yet. We recommend you to use the portal to connect a workspace to a repository.
   </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
+  <TabItem value="typescript" label="Typescript">
+  This operation is not available through the Typescript SDK yet.
   </TabItem>
 </Tabs>
 
-### Connect to repository
+### Connect the workspace to a repository
 
-Every workspace needs to be connected to a repository that stores the code and the configuration of the workspace and its resources. 
+Every workspace needs to be connected to a repository that stores **the code** and **the configuration** of the workspace and its resources. 
 
 :::info
 
@@ -50,70 +52,156 @@ OwlGrid supports only Github repositories for now.
 
 :::
 
-To connect a workspace to a repository, this workspace need to have at least one branch name **main**. This branch will be used to create the main environment of your workspace. For more information about environments, please refer to the [environments section](/docs/resources/owl-workspace/environments).
+To connect a workspace to a repository, this workspace need to have at least one branch. This branch will be used to create the main environment of your workspace. For more information about environments, please refer to the [environments section](/docs/resources/owl-workspace/environments).
+
+<Tabs groupId="client">
+  <TabItem value="portal" label="Portal">
+
+#### Logging
+
+Start by logging in to the [OwlGrid portal](https://portal.owlgrid.com/). 
+  
+Then, on the [workspaces section](https://portal.owlgrid.com/manager/workspaces) of the manager, click on the workspace that you want to configure.
+
+:::note
+
+If a workspace is not connected to a repository, you will see a **Connect to repository** dialog everytime you access to the portal of this workspace.
+
+:::
+
+#### Connect to Github
+
+Once the workspace portal is opened, the dialog "Connect your workspace to a repository" will appear. Click on the **Connect to Github** button. 
+
+Make sure to connect to Github using an account that has access to the repository you want to use.
+
+#### Grant access to repositories
+
+Once you are connected, you will be able to select the repository you want to use. If no repository is displayed on the list, make sure that OwlGrid Github App is installed in the repository you want to connect. To install the Github App, click on the button "Grant access to repositories", choose the repository(ies) in which you need to install the app and click on the refresh button to make it appear in the list.
+
+#### Choose the main branch
+
+Once the repository is selected, you will be able to choose the main branch of the workspace. This branch will be used to create the main environment of your workspace. For more information about environments, please refer to the [environments section](/docs/resources/owl-workspace/environments).
+
+#### Connect
+
+Click on the button "Connect". The repository is now connected to the workspace and the main branch is created.
+
+  </TabItem>
+  <TabItem value="http" label="HTTP API">
+  This operation is available through the HTTP API but not documented yet. We recommend you to use the portal to connect a workspace to a repository.
+  </TabItem>
+  <TabItem value="typescript" label="Typescript">
+  This operation is not available through the Typescript SDK yet.
+  </TabItem>
+</Tabs>
 
 ### Get workspace information
 
 <Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
+  <TabItem value="portal" label="Portal">
+
+To access to a workspace, you need to log in to the [OwlGrid portal](https://portal.owlgrid.com/), select the workspace in the [workspaces section](https://portal.owlgrid.com/manager/workspaces) and click on the **Open** button.
+
+The workspace information are available on the **Workspace** section of the left menu.
+  
   </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
+  <TabItem value="http" label="HTTP API">
+
+```http
+  GET /workspaces/{{workspace-id}}/environments/{{environment-name}}/{{service-id}}/workspaces/{{workspace-id}} HTTP/1.1
+  Authorization: Bearer {{access-token}}
+  Host: api.owlgrid.com
+```
+
+Note: the `{{environment}}` parameter can be any environment. We recommend to use the main environment name.
+
+  </TabItem>
+  <TabItem value="typescript" label="Typescript">
+
+```typescript
+import { OwlWorkspaceBetaClient } from '@owlgrid-dev/owl-workspace-client';
+
+// Create the client with machine account credentials
+const client = new OwlWorkspaceBetaClient({
+    auth: {
+        method: 'secret',
+        secret: 'secret',
+        accountId: 'accountId',
+        perimeters: ['owl.workspace.workspaceId'],
+    },
+    workspaceId: 'workspaceId'
+});
+
+// Connect the client (generate an access token)
+await client.connect();
+
+// Get the workspace
+workspace = await client.getWorkspace();
+```
+
   </TabItem>
 </Tabs>
 
-### Update a workspace
+### Update workspace information
 
-<Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
-  </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
-  </TabItem>
-</Tabs>
+:::caution Work in progress
+
+🚧 This operation is not available yet.
+
+:::
 
 ### Delete a workspace
 
 <Tabs groupId="client">
-  <TabItem value="rest" label="REST API">
-  TODO http call
+  <TabItem value="portal" label="Portal">
+
+To delete a workspace, navigate to the Workspace -> Workspace settings -> Danger zone section of the workspace. Then, click on the **Delete workspace** button. Enter the workspace name to confirm the deletion.
+
+Be careful, this operation is irreversible. All the resources of the workspace will be deleted.
+
   </TabItem>
-  <TabItem value="cli" label="CLI">
-  TODO cli command
+    <TabItem value="http" label="HTTP API">
+
+```http
+  DELETE /workspaces/{{workspace-id}}/environments/{{environment-name}}/{{service-id}}/workspaces/{{workspace-id}} HTTP/1.1
+  Authorization: Bearer {{access-token}}
+  Host: api.owlgrid.com
+```
+
+Notes:
+- The `{{environment}}` parameter can be any environment. We recommend to use the main environment name.
+- The deletion will be done withtout asking for confirmation. Be careful when using this operation.
+
+
+  </TabItem>
+  <TabItem value="typescript" label="Typescript">
+
+```typescript
+import { OwlWorkspaceBetaClient } from '@owlgrid-dev/owl-workspace-client';
+
+// Create the client with machine account credentials
+const client = new OwlWorkspaceBetaClient({
+    auth: {
+        method: 'secret',
+        secret: 'secret',
+        accountId: 'accountId',
+        perimeters: ['owl.workspace.workspaceId'],
+    },
+    workspaceId: 'workspaceId'
+});
+
+// Connect the client (generate an access token)
+await client.connect();
+
+// Delete the workspace
+await client.deleteWorkspace();
+```
+
+Notes:
+- The `{{environment}}` parameter can be any environment. We recommend to use the main environment name.
+- The deletion will be done withtout asking for confirmation. Be careful when using this operation.
+
+
   </TabItem>
 </Tabs>
-
-
-The **controller** is a special resource that manages a [workspace](/docs/general/concepts/workspaces). It is responsible for the following:
-- Manage the workspace identity (id, network, etc.);
-- List available resources of the workspace;
-- Attach or detach resources;
-- Manage the workspace configuration:
-    - Metadata: more information [here](/docs/general/concepts/metadata);
-
-TODO Data model:
-- workspace
-    - id
-    - address
-    - organization
-    - cloud
-    - administrator
-        - id
-        - password
-    - creationDate
-    - updateDate
-- Metadatas
-    - id
-    - name
-    - type
-    - values accepted
-    - default value
-    - description
-    - creationDate
-    - updateDate
-- Resources
-    - id
-    - network address
-    - status
