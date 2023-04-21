@@ -1,0 +1,576 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "beta",
+        "title": "owl-access",
+        "license": {
+            "name": "OwlGrid"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://app.owlgrid.com/falseowl-access/beta/"
+        }
+    ],
+    "paths": {
+        "/addClaimsToAccessToken": {
+            "post": {
+                "summary": "Generate an access token based on a past access token (same payload) but with additional claims. The new claims will be added to the list of current claims (ex: current per: ['owl.manager'], new claims ['owl.manager', 'owl.workspaces.abcdef']). This operation is called only from the portal with a valid access token.",
+                "operationId": "addClaimsToAccessToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "addClaimsToAccessToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/:userId/checkExistence": {
+            "get": {
+                "summary": "Check if a user exists.",
+                "operationId": "checkUserAccountExistence",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "checkExistence"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/machineAccounts": {
+            "get": {
+                "summary": "List machine accounts in OwlGrid manager.",
+                "operationId": "listMachineAccounts",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "machines",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new machine account (used for machine to machine interaction).",
+                "operationId": "createMachineAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "machines",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "List user accounts in OwlGrid manager.",
+                "operationId": "listUserAccounts",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new user.",
+                "operationId": "createUserAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/machineAccounts/:machineAccountId": {
+            "delete": {
+                "summary": "Delete a machine account.",
+                "operationId": "deleteMachineAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "machines",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/:userId": {
+            "post": {
+                "summary": "Update a user.",
+                "operationId": "updateUserAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "update"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get a user account.",
+                "operationId": "getUserAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "get"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a user.",
+                "operationId": "deleteUserAccount",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/generateAccessToken": {
+            "post": {
+                "summary": "Generate an access token. This operation is only callable from low services and requires a secret to be passed in input body.",
+                "operationId": "generateAccessToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "generateAccessToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getGithubAccountId": {
+            "post": {
+                "summary": "Get a Github Account Id from a Github OAuth code. This request requests first the user account id and update it in the database.",
+                "operationId": "getGithubAccountId",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "getGithubAccountId"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getGithubAuthorizationToken": {
+            "post": {
+                "summary": "Get a Github authorization from a Github OAuth code. This method does not stores the token in the database.",
+                "operationId": "getGithubAuthorizationToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "getGithubAuthorizationToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/:userId/githubAuthorizedRepositories": {
+            "get": {
+                "summary": "List repositories that have been authorized by a user.",
+                "operationId": "listGithubAuthorizedRepositories",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "githubAuthorizedRepositories",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/listGithubRepositoryBranches": {
+            "get": {
+                "summary": "List branches of a repository.",
+                "operationId": "listGithubRepositoryBranches",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "githubRepositoryBranches",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/:userId/githubUserInformation": {
+            "get": {
+                "summary": "Get the user information of a Github user.",
+                "operationId": "getGithubUserInformation",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "githubUserInformation",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId/assignments": {
+            "get": {
+                "summary": "List roles assignments to accounts. TODO create a more secure version of this operation for workspaces",
+                "operationId": "listRolesAssignments",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "assignments",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Assign an account to a role.",
+                "operationId": "assignRole",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "assignments",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId/assignments/:assignmentId": {
+            "delete": {
+                "summary": "Delete a role assignment.",
+                "operationId": "deleteRoleAssignment",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "assignments",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/roles": {
+            "get": {
+                "summary": "List roles. TODO create a more secure version of this operation for workspaces",
+                "operationId": "listRoles",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "list"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new role.",
+                "operationId": "createRole",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "create"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/:roleId": {
+            "delete": {
+                "summary": "Delete a role.",
+                "operationId": "deleteRole",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "roles",
+                    "delete"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sendMagicToken": {
+            "post": {
+                "summary": "Send a magic Token to the user. This operation is triggered when the user fill him email address in the login form. The magic token (4 digits) is sent to the user by email. The user can then enter the 4 digits in the interface to be automatically logged in.",
+                "operationId": "sendMagicToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "sendMagicToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/validateMagicToken": {
+            "post": {
+                "summary": "Validate a magic token sent to the user. This operation happens when the user enters the magic token received by email in the interface (4 digits). It returns an access token that can be used to authenticate the user in the future.",
+                "operationId": "validateMagicToken",
+                "tags": [
+                    "owl-access",
+                    "beta",
+                    "accounts",
+                    "users",
+                    "validateMagicToken"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

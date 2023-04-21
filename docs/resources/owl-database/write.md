@@ -16,7 +16,7 @@ Request details:
 - URL: `https://api.owlgrid.com/data`
 - Verb: `POST`
 - Headers:
-  - Authorization: Bearer token (see [Authorization](/docs/references/api#authorization)).
+  - Authorization: Bearer token (see Authorization).
   - Tenant: identifier of the organization.
 - Body: array of operations (TODO JSON schema).
 
