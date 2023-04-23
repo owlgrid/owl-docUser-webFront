@@ -1,0 +1,100 @@
+---
+sidebar_position: 2
+---
+
+# Getting started - Typescript
+
+## 1. Create a client
+
+The first step to use the SDK is to create client that will handle an authentication state and some information (connection to OwlGrid, workspaceId, preferences, etc.).
+
+OwlGrid SDK allow to connect as a machine account ([using credentials](#using-credentials)) or as a user ([using an access token](#using-an-access-token)).
+
+### Using credentials
+
+The `secret` auth method can be used to authenticate with a machine account. This is the recommended method for server-side applications.
+
+Machine account credentials can be created in the [workspace administration](/docs/resources/owl-workspace/owl-access/machines).
+
+Example:
+
+```typescript
+import { OwlAccessBetaClient } from '@owlgrid-dev/owl-access-client';
+
+// Create the client with machine account credentials
+const client = new OwlAccessBetaClient({
+    auth: {
+        method: 'secret',
+        secret: 'secret',
+        accountId: 'accountId',
+        perimeters: ['owl.workspace.workspaceId'],
+    }
+});
+
+// Connect the client (generate an access token)
+await client.connect();
+```
+
+### Using an access token
+
+The `token` auth method can be used to authenticate with an access token. This is the recommended method for client-side applications.
+
+Example:
+
+```typescript
+import { OwlAccessBetaClient } from '@owlgrid-dev/owl-access-client';
+
+// Create the client with machine account credentials
+const client = new OwlAccessBetaClient({
+    auth: {
+        method: 'accessToken',
+        accessToken: 'accessToken in JWT format'
+    }
+});
+
+// The connection to the client is not required for now but we plan to check the validity of the token
+await accessClient.connect();
+```
+
+## 2. Request the SDK
+
+SDK methods are asynchronous. They must be used with `await` or `then`/`catch`.
+
+```typescript
+// Get the list of all the workspaces
+const workspaces = await client.getWorkspaces();
+```
+
+### Parameters
+
+Some methods require parameters. There are several parameters types:
+
+| **Type**       | **Example**                        | **HTTP API equivalent**                     | **SDK behavior**                                                                                                                                    |
+|----------------|------------------------------------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Identifier** | workspaceId                        | Sent through parameters                     | Each path parameter is added as a single parameter (moreover, the workspaceId and environmentId are get though client properties (stored in this.)) |
+| **Data**       | workspace object to create         | sent through body                           | added as a single object parameter (named "data")                                                                                                   |
+| **Metadata**   | pageSize in list objects operation | sent through query parameters               | all metadata parameters are added to a "metadata" object parameter                                                                                  |
+| **Technical**  | bearer token                       | sent through headers                        | each technical parameter is added as a single parameter                                                                                             |
+| **Generated**  | claims                             | generated automatically by HTTP middlewares | not user facing                                                                                                                                     |
+Example:
+
+```typescript
+// Create a user account
+const userId = await client.createUserAccount({ 
+    name: 'John Doe',
+    email: 'john.doe@gmail.com'
+});
+
+// Get the name of a user account
+const userAccount = await client.getUserAccount(userId, { 
+    properties: 'name'
+});
+```
+
+:::note
+Parameters are documented in TSDoc and can be autocompleted by your IDE.
+:::
+
+## More examples
+
+If you want to see more examples, you can check the testing tool that we use to test the SDK: [https://github.com/owlgrid/ops-test](https://github.com/owlgrid/ops-test)
