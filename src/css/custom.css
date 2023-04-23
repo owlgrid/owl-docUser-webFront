@@ -46,3 +46,7 @@
     background: linear-gradient(316.31deg, #945FFE 10.57%, #0079FF 93.61%);
     color: #fff;
 }
+
+.hero__title {
+    color: #fff !important;
+}
