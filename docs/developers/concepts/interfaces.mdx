@@ -1,0 +1,30 @@
+---
+sidebar_position: 2
+---
+
+# Data model et interfaces
+
+Pour échanger des données de manière consistante, les [services](/docs/developers/concepts/resources) doivent utiliser des modèles de données et des protocoles d'échanges communs.
+
+## Le repository dev-model-interfaces
+
+Le modèle de données ainsi que les interfaces des services (et par extension des ressources) sont définis dans le repository [owlgrid/dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces).
+
+L'objectif d'utiliser un repository central est de créer un environnement fortement typé et de limiter le risque d'erreurs.
+
+L'architecture du repository est définie dans le fichier Readme à la racine du repository. En résumé, le repository est composé notamment d'un dossier `resources` qui contient un sous-dossier par service. Chaque sous-dossier contient un autre sous-dossier avec la version du service (par exemple `v1`). Ce sous-dossier est composé de définitions de modèles de données, d'opérations et d'erreurs.
+
+Pour mieux comprendre le fonctionnement, n'hésitez pas à explorer [owl-access/beta](https://github.com/owlgrid/dev-model-interfaces/tree/master/resources/owl-access/beta).
+
+## Génération de code
+
+Le repository [owlgrid/dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces) est entièrement écrit en JSON afin d'être *technology-agnostic* et permettre donc de générer différents systèmes en plusieurs technologies.
+
+Cette génération créée notamment les outputs suivants (pour un service Express-Typescript) :
+- Resource tree JSON (agrégation des références dans un seul fichier);
+- Types Typescript du service;
+- Librairies d'erreurs Typescript;
+- Stubs Typescript pour les fichiers d'opérations;
+- SDK Typescript du service;
+- Spécifications OpenAPI des opérations (HTTP uniquement) -> work in progress;
+- Etc.
