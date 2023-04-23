@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+---
+
+# Dev stack
+
+Avant de commencer à développer, voici les outils à installer sur votre machine (dans l'ordre) :
+
+- Un gestionnaire de versions de fichiers :
+    - **obligatoire** : Git (sur MacOS, via [Xcode Command Line Tools](https://idmsa.apple.com/IDMSWebAuth/signin.html?path=%2Fdownload%2Fall%2F&appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&rv=0))
+- Un client Git :
+    - **au choix** [GitKraken](http://gitkraken.com) (workspaces super pratiques), Git CLI, [Github Desktop](https://desktop.github.com), etc.
+- Un gestionnaire de versions Node :
+    - **obligatoire** [NVM](https://github.com/nvm-sh/nvm)
+- Node
+    - **obligatoire** latest version (18.15.0) [via nvm](https://github.com/nvm-sh/nvm#usage)
+- Un gestionnaire de paquets Node
+    - **obligatoire** [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) latest
+- Un éditeur de code
+    - **obligatoire [VS Code](https://www.notion.so/Onboarding-tech-95f076d189f949d8b36c3607a2bab780)** en éditeur de texte
+- Un client d’API
+    - **obligatoire** [Postman](https://www.postman.com/downloads/) (créer un compte avec l’adresse @owlgrid.com et demander à être ajouté à l’organisation)
+- Des packages stylés :
+    - **obligatoire** Typescript (commande : `yarn global add typescript`)
+    - **obligatoire** tslint (commande : `yarn global add tslint`)
+- Créer un compte npm pour pouvoir publier des packages
+    - **obligatoire** [https://www.npmjs.com/signup](https://www.npmjs.com/signup)
+    - **obligatoire** demander un accès à l’organisation pour publier des packages
+- Se connecter avec npm en cli pour publier depuis son device
+    - **obligatoire** exécuter : `npm login` puis `npm adduser`
+    - **obligatoire** exécuter : `yarn config set version-git-tag false` pour éviter de tagger les nouvelles releases dans Git.
+    - **obligatoire** exécuter : `yarn config set registry [https://registry.npmjs.org/](https://registry.npmjs.org/)` pour publier les packages dans le registry de npm (et pas celui de yarn par défaut)
