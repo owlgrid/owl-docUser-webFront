@@ -16,7 +16,7 @@ L'architecture du repository est définie dans le fichier Readme à la racine du
 
 Pour mieux comprendre le fonctionnement, n'hésitez pas à explorer [owl-access/beta](https://github.com/owlgrid/dev-model-interfaces/tree/master/resources/owl-access/beta).
 
-## Génération de code
+## Génération
 
 Le repository [owlgrid/dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces) est entièrement écrit en JSON afin d'être *technology-agnostic* et permettre donc de générer différents systèmes en plusieurs technologies.
 
@@ -28,3 +28,9 @@ Cette génération créée notamment les outputs suivants (pour un service Expre
 - SDK Typescript du service;
 - Spécifications OpenAPI des opérations (HTTP uniquement) -> work in progress;
 - Etc.
+
+## Types de services
+
+Selon les types de services, la génération de code est différente. Par exemple, pour un service Node-Typescript avec une interface HTTP, la génération de code est différente de celle d'un service Lambda-Typescript (on ne génèrera pas de SDK pour Lambda-Typescript, alors que pour Node-Typescript si).
+
+Les types de services sont définis dans les **profiles**, fichiers JSON stockés dans le dossier `profiles` du repository [owlgrid/dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces).

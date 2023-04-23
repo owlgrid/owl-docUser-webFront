@@ -16,11 +16,13 @@ La liste des ressources est disponible sur [cette page](https://www.notion.so/cr
 
 ## Service
 
-Un **service** est un composant *technique* qui implémente la logique des ressources. Les services ne sont pas visibles de la part des utilisateurs. Une ressource est l'aggrégation d'un ou plusieurs services.
+Un **service** est un composant *technique* qui implémente la logique des ressources. À l'inverse des ressources, les services existent dans une couche technique et ne sont donc pas visibles de la part des utilisateurs. Une ressource est l'aggrégation d'un ou plusieurs services.
 
 Ex : le service `owl-access` est responsable de la gestion des accès de la plateforme OwlGrid. La plupart des ressources reposent sur ce service pour gérer les droits d'accès.
 
-Un service est associé à une technologie (ex : `owl-access` est un serveur Express qui suit une architecture microservice).
+Un service est associé à :
+- Une **technologie** : une technologie est la combinaison d'un language et d'un environnement d'exécution, voire d'architecture. Ex : `owl-access` est un serveur Node qui suit une architecture microservice. Aujourd'hui, on définit plusieurs technologies telles que Node + TS, AWS Lambda + TS, StepFunction + Lambda + TS.
+- Un **type d'interface** : une interface est un moyen d'échanger avec un service. Il est possible d'associer plusieurs interfaces à un même service, voire des interfaces différentes selon les opérations d'un service. Ex : `owl-access` expose une API HTTP ainsi qu'un SDK Typescript. Le service `owl-database` expose une API HTTP et un serveur socket pour certaines opérations, telles que `listenToData()`.
 
 La liste des services est disponible sur [cette page](https://www.notion.so/creastel/Components-9ec5646b1cf74a13839b7a8c83dd3e9a?pvs=4).
 
