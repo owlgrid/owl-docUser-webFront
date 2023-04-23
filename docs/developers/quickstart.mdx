@@ -1,0 +1,92 @@
+---
+sidebar_position: 2
+---
+
+# Quickstart
+
+## Prérequis
+
+Avant de commencer, il est nécessaire d’installer les outils de la [dev stack](/docs/developers/tools/stack) et de maîtriser les concepts piur les développeurs.
+
+# Développer des services owl en local
+
+:::info
+💡 Pour ce How To, nous allons prendre l’exemple du service https://github.com/owlgrid/owl-workflow.
+:::
+
+Pour développer en local, nous allons utiliser 3 éléments :
+
+- Le repository model-interfaces qui comporte la description des services et de leurs opérations https://github.com/owlgrid/dev-model-interfaces ;
+- Le code source du service à développer https://github.com/owlgrid/owl-workflow ;
+- Le serveur local https://github.com/owlgrid/ops-mutualizedServer qui permet d’exécuter le service ;
+- Le repository https://github.com/owlgrid/ops-test qui contient des jeux de test end-to-end permettant de contrôler le bon fonctionnement et éventuellement d’identifier des régressions.
+
+## Mettre en place l’environnement de travail
+
+Pour commencer, cloner en local les repositories suivants :
+
+- https://github.com/owlgrid/dev-model-interfaces
+- https://github.com/owlgrid/ops-mutualizedServer
+- https://github.com/owlgrid/owl-workflow, https://github.com/owlgrid/owl-access, https://github.com/owlgrid/owl-database, https://github.com/owlgrid/owl-manager, https://github.com/owlgrid/owl-organization, https://github.com/owlgrid/owl-perimeter, https://github.com/owlgrid/owl-template, https://github.com/owlgrid/owl-workspace
+
+:::info
+❓ WTF Jamy, pourquoi je dois cloner tous ces services ?
+Parce que https://github.com/owlgrid/dev-model-interfaces exporte des spécifications (resourcesTree, stubs, types) dans tous les services à **chaque exécution** C’est mal foutu, mais il est prévu de pouvoir exporter les interfaces uniquement dans un service.
+:::
+
+## Ajouter / modifier des opérations dans owl-workflow
+
+Les interfaces des opérations et leurs types sont définies dans le repository dev-model-interfaces. Pour créer une nouvelle opération, par exemple `listWorkflows`, il faut :
+
+- Accéder au dossier local `dev-model-interfaces` ;
+- Accéder au dossier `/resources/owl-workflow/operations` ;
+- Créer un nouveau fichier avec le nom de l’opération `listWorkflows` ;
+
+:::info 😎 Astuce de pro
+Pour gagner du temps lors de l’écriture d’une nouvelle opération, copie un fichier déjà existant avec une action similaire (ex : pour créer listWorkflows, je peux récupérer l’opération listWorkspaces qui est relativement similaire, puis remplacer les valeurs pour s’adapter à mon opération).
+:::
+
+- Si nécessaire, créer les fichiers de définition des input et des outputs dans le dossier `/resources/owl-workflow/definitions`. Parfois, certains inputs ou outputs sont génériques. C’est notamment le cas de l’input de l’opération de list (consulter les opérations similaires pour bien comprendre) ;
+- Pour exporter l’opération vers le dossier owl-workflow, exécuter `yarn dev` dans `dev-model-interfaces` ;
+- Se rendre dans le dossier local `owl-workflow` ;
+- Dans le fichier `/src/controllers/listWorkflows`, implémenter le code source de l’opération. Les types d’entrée et de sortie de l’opération sont déjà remplis.
+
+## Exécuter le service
+
+Pour exécuter le service owl-workflow, rends-toi dans le dossier `ops-mutualizedServer`, puis :
+
+- Dans le fichier `src/binder.ts`, remplacer l’import du package `import { generateMutualizedInterfaces as generateMutualizedInterfacesOWF } from "@owlgrid-dev/owl-workflow/lib/interfaces";`  par l’import local : `import { generateMutualizedInterfaces as generateMutualizedInterfacesOWF } from "../../owl-manager/src/interfaces";`.
+- Lance le serveur en exécutant `yarn dev`.
+
+Pour que les modifications du code de owl-workflow soient prises en compte dans le serveur, il est nécessaire d’exécuter la commande `rs` dans la console d’ops-mutualizedServer, afin de le relancer avec les dernières modifications de code.
+
+## Tester
+
+### Tests unitaires
+
+Le service expose une API HTTP qui peut être appelée via n’importe quel client HTTP. La liste des routes exposées est affichée dans la console de ops-mutualizedServer au moment de son exécution. Pour faciliter les développements, il est fortement recommandé d’ajouter chaque nouvelle route dans le workspace Postman d’OwlGrid. Cela permet une meilleure gestion des environnements, historiques de requêtes et une authentification unifiée.
+
+Plus d’informations sur Postman : [Requêter l’API](https://www.notion.so/Requ-ter-l-API-db7850adc4524f8185cae5608f384265).
+
+### Tests end-to-end
+
+Avant de déployer le service, il est **impératif** d’écrire des tests end-to-end. Ces tests permettent de vérifier que le comportement effectif est bien le comportement attendu, non seulement lors du développement du service, mais surtout lors de déploiements futurs afin d’identifier des régressions. Les tests doivent être écrits dans le repository https://github.com/owlgrid/ops-test dans le dossier `owl-[nom du service]`. Pour plus d’informations sur le fonctionnement d’ops-test, se référer au README du repository.
+
+## Déployer le service
+
+- Tester avec ops-test.
+- Publier le module owl-workflow en exécutant la commande `yarn release`. Attention, le développeur doit être connecté à npm et utiliser un compte autorisé à publier dans l’organisation owlgrid-dev : [https://www.npmjs.com/settings/owlgrid-dev/packages](https://www.npmjs.com/settings/owlgrid-dev/packages)
+    - Avant exécution, run :
+    
+    ```bash
+    yarn config set version-git-tag true
+    ```
+    
+- Dans ops-mutualizedServer :
+    - Dans le fichier `src/binder.ts`, remplacer l’import local `import { generateMutualizedInterfaces as generateMutualizedInterfacesOWF } from "../../owl-manager/src/interfaces";` par l’import du package `import { generateMutualizedInterfaces as generateMutualizedInterfacesOWF } from "@owlgrid-dev/owl-workflow/lib/interfaces";`.
+    - Dans le fichier `/package.json`, mettre à jour la dépendance `"@owlgrid-dev/owl-workflow": "^0.0.3",` sur la dernière version publiée.
+    - Installer la dernière version du package en exécutant `yarn`.
+- Tester les dernières modifications en lançant le serveur (`yarn dev`) puis en exécutant les tests end-to-end (dans ops-test, exécuter `yarn test`).
+- Si tous les tests fonctionnent, pousser les modifications sur la branche `dev` de ops-mutualizedServer, puis créer une PR de `dev` vers `beta`. Si la PR est autorisée, valider. Le déploiement du serveur est automatique (la progression peut être suivie dans AWS → CodePipeline → owl-services-beta).
+- Une fois que le service est déployé, vérifier qu’il s’exécute correctement en exécutant les tests end-to-end sur l’environnement distant (dans le fichier `.env`, remplacer la valeur de `mutualizedServersURL` par [`https://beta.app.owlgrid.com`](https://beta.app.owlgrid.com/)).
+- Bravo ! Encore une affaire rondement menée 🎉

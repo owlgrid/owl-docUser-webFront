@@ -1,0 +1,27 @@
+---
+sidebar_position: 10
+---
+
+# Les APIs avec Postman
+
+Nous utilisons [Postman](https://www.postman.com) comme client d'API, ce qui nous permet de partager des collections d'API entre les équipes.
+
+Étapes pour initialiser l’environnement Postman :
+
+- Ouvrir le workspace “OwlGrid — Core Team” sur Postman
+- Se rendre dans Collections → owl-access → Authentication & access grant → Generate access token
+- Sélectionner l’environnement “beta” dans la dropdown en haut à droite de l’interface
+- Copier l’access_token renvoyé par l’opération. C’est un super access_token (il a le droit de tout faire) à utiliser uniquement en machine 2 machine avant qu’on implémente une gestion plus fine pour notre communication inter-services.
+- Dans la sidebar tout à gauche de Postman, sélectionner “Environnements’ → beta → remplacer la Current value (et pas la initial value stp) de “bearerToken” et “bearerTokenManager” par l’access token copié à l’étape précédente.
+- Enregistrer les nouvelles variables d’environnement.
+- Postman est prêt à faire des requêtes.
+
+Étapes pour obtenir la liste des workspaces par Github id :
+
+- Collection owl-manager → Repositories → List repositories avec filter : `{githubId:"todo"}`
+
+N.b. : les filters sont des filtres mongodb
+
+:::info
+💡 Pour créer / supprimer des workspaces ou des repositories, il suffit d’appeler les routes associées. Tips : créer des workspaces se trouve dans owl-manager, tandis que delete workspace et toutes les méthodes d’écriture de repository se trouvent dans owl-workspace
+:::
