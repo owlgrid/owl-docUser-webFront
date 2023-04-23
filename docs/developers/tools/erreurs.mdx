@@ -1,0 +1,41 @@
+---
+sidebar_position: 10
+---
+
+# Erreurs
+
+La gestion des erreurs est critique pour identifier au plus vite les problèmes rencontrés par nos utilisateurs.
+
+## Centralisation des erreurs
+
+Toutes les erreurs qui sont émises par n'importe quel service doivent être définies en JSON dans le repository de définition du service à l'intérieur de [dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces/tree/master/resources). N.b.: les erreurs transversales à plusieurs services sont définies dans le dossier `/generic`.
+
+La centralisation du système d'erreurs permet notamment d'enrichir l'émission d'erreurs avec des informations supplémentaires, telles qu'un message court, une description, des pistes de solution, des détails, etc.
+
+La centralisation permet également d'exposer toutes les erreurs sur un site de documentation unique.
+
+:::caution
+Le site d'erreurs est en cours de construction.
+:::
+
+## Typologie des erreurs
+
+Le type des erreurs est défini dans ce [schéma JSON](https://github.com/owlgrid/dev-model-interfaces/blob/master/toolbox/schemas/error.json). Implémentation technique :
+
+### Typescript
+
+Les erreurs en Typescript sont des classes qui étendent la classe [`OwlError`](https://github.com/owlgrid/dev-sdk-ts/blob/main/errors/src/OwlError.ts), qui étend elle-même la classe `Error`.
+
+Elle peuvent être émises de la manière suivante :
+
+```typescript
+throw new ErrorName(parameters);
+```
+
+### HTTP
+
+Les erreurs sont mises en forme dans les API HTTP et dans les SDK pour qu’elles soient simples à investiguer.
+
+## Process de génération des erreurs
+
+Les erreurs sont définies dans [dev-model-interfaces](https://github.com/owlgrid/dev-model-interfaces) et sont donc générées automatiquement dans les différents languages qui implémentent les services.

@@ -1,0 +1,25 @@
+---
+sidebar_position: 10
+---
+
+# Tests
+
+Le testing automatisé est au coeur du développement de la plateforme afin de garantir que le fonctionnement des services est bien celui spécifié et que les modifications apportées n'entraînent pas de regressions.
+
+## Stratégie de testing
+
+Nous favorisons une approche de testing *end-to-end* qui repose sur le test des interfaces "le plus proches des utilisateurs". La logique d'avoir une granularité haute de test est la suivante : si un n'importe quel maillon dans la chaîne de dépendance d'une opération est défaillant, le test end-to-end échouera systématiquement.
+
+L'objectif est d'implémenter également des tests d'interface graphique sur le portail, mais ce chantier n'est pas priorisé pour le moment.
+
+### Test driven development
+
+Le testing est une composante essentielle du développement. Chaque feature doit être correctement testée et documentée avant de se soumettre aux process de review. Pour cela, les équipes peer-review autant le code des features que les tests.
+
+## L'outil de testing
+
+L'outil utilisé pour le testing est un projet Node interne, [ops-test](https://github.com/owlgrid/ops-test), qui exécute des tests synchrones en interagissant avec les services à travers leurs SDKs. Les tests sont écrits en TypeScript et les assertions sont définies avec la librairie mocha.
+
+L'intérêt des tests asynchrones est d'éviter les effets de bord, notamment si des opérations bloquantes lors d'une exécution en parallèle ont lieu. Toutefois, ces tests sont plus longs à exécuter, c'est pourquoi l'outil de testing permet de n'exécuter que certains scénarios spécifiques.
+
+La documentation de l'outil de testing est disponible [directement dans le readme du repo ops-test](https://github.com/owlgrid/ops-test).

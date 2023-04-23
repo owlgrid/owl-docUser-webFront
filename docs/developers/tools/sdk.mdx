@@ -1,0 +1,61 @@
+---
+sidebar_position: 10
+---
+
+# SDK
+
+Les SDK de services permettent d'implémenter des connexions entre services via une API haut-niveau. En Typescript, le SDK permet notamment d'utiliser des types pour les paramètres et les retours des opérations.
+
+## Types de SDK
+
+:::caution Pas de méli-mélo
+Il existe 2 types de SDK. Les SDK orientés **ressources** (qui sont user-facing et qui respectent l'organisation des ressources) et les SDK de **services** qui sont techniques et générés automatiquement sur les interfaces des services. Cette page concerne les SDK de services.
+:::
+
+Note : les SDK de ressources sont considérés comme des services. Autrement dit, le SDK de la ressource owl-database est défini dans le service `owl-database-sdk-ts`.
+
+La suite des explications concerne les SDK de services.
+
+## Définition des SDK
+
+Les SDK sont générés au même moment que la génération des interfaces des services (cf. [Génération des interfaces](/docs/developers/concepts/interfaces)).
+
+## Versionning
+
+Tous les SDK techniques utilisent la même version. Cela permet de garantir la compatibilité entre les SDK et les interfaces des services.
+
+:::caution
+Le process de release des versions de SDK n'est pas encore défini.
+:::
+
+## Usage selon les languages
+
+L'usage des SDK dépend du language.
+
+### Typescript
+
+#### Génération
+
+Au cours de la génération, les SDK sont exportés automatiquement dans le repository [owlgrid-dev-ts-sdk](https://github.com/owlgrid/owlgrid-dev-ts-sdk) dans des dossiers correspondants aux services.
+
+#### Publication 
+
+Les SDK doivent être publiés **manuellement** depuis les sous-dossiers de [owlgrid-dev-ts-sdk](https://github.com/owlgrid/owlgrid-dev-ts-sdk) au moyen de la commande suivante :
+    
+```bash
+yarn release
+```
+
+Les SDK sont alors publiés dans le registre NPM `@owlgrid-dev/<serviceName>-client`.
+
+#### Import
+
+Pour utiliser un SDK, il est nécessaire de l'importer dans le package.json du projet. Pour cela, exécuter la commande suivante :
+
+```bash
+yarn add @owlgrid-dev/<serviceName>-client
+```
+
+### Usage
+
+Veuillez vous référer à la documentation du SDK du service concerné sur la page [Getting started - Typescript](/docs/references/sdk/usage).
