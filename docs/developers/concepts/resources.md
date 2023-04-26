@@ -14,6 +14,14 @@ Une **ressource** est un composant *user-facing* (destinée à être manipulée 
 
 La liste des ressources est disponible sur [cette page](https://www.notion.so/creastel/Components-9ec5646b1cf74a13839b7a8c83dd3e9a?pvs=4).
 
+### Activation des ressources
+
+Une ressource doit être activée dans un environnement spécifique pour pouvoir être utilisée. L'activation des ressources permet d'initialiser les différents éléments techniques (ex : création des collections et indexes de recherche dans les bases de données).
+
+Une ressource est activée pour un workspace et un environnement spécifique.
+
+Pour le moment, toutes les ressources sont activées par défaut à la création d'un nouvel environnement. Toutefois, il sera possible demain d'activer les ressources au fur et à mesure pour économiser des services.
+
 ## Service
 
 Un **service** est un composant *technique* qui implémente la logique des ressources. À l'inverse des ressources, les services existent dans une couche technique et ne sont donc pas visibles de la part des utilisateurs. Une ressource est l'aggrégation d'un ou plusieurs services.
